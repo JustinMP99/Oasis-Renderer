@@ -1,14 +1,19 @@
-#include <iostream>
+
+#include "SystemManager.h"
 
 
 
 int main()
 {
 
-	std::cout << "Hello, World!" << std::endl;
+	SystemManager* system = new SystemManager();
+
+	system->Initialize();
+
+	system->ProgramLoop();
+
+	system->Shutdown();
 
 	return 0;
 
 }
-
-

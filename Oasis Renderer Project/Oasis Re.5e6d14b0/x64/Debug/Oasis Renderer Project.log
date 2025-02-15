@@ -1,2 +1,6 @@
-﻿  Main.cpp
+﻿  Graphics.cpp
+  Main.cpp
+  SystemManager.cpp
+  WindowManager.cpp
+  Generating Code...
   Oasis Renderer Project.vcxproj -> E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe
