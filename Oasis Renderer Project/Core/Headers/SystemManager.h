@@ -11,7 +11,6 @@ static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 class SystemManager
 {
-
 private:
 
 	Graphics* renderer;
@@ -21,11 +20,13 @@ private:
 
 public:
 
+	/// <summary>
+	/// Initializes all of the programs starting data such as the window manager, renderer, input handler, etc.
+	/// </summary>
+	/// <returns></returns>
 	bool Initialize();
 
 	bool ProgramLoop();
 
 	bool Shutdown();
-
 };
-

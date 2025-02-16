@@ -1,6 +1,5 @@
 #include "../Headers/WindowManager.h"
 
-
 //PRIVATE
 
 
@@ -9,7 +8,6 @@
 
 bool WindowManager::Initialize()
 {
-
 	//Create Window
 
 	//Initialize GLFW library
@@ -20,10 +18,9 @@ bool WindowManager::Initialize()
 
 	//Set OpenGL version minor
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	
+
 	//Set the OpenGL profile to Core (Not Compatibility)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
 
 	strcpy_s(windowTitle, "Oasis Renderer");
 
@@ -32,9 +29,8 @@ bool WindowManager::Initialize()
 	{
 		const char temp[] = " - OpenGL";
 		strcat_s(windowTitle, temp);
-
 	}
-	else if(GRAPHICS_API == DIRECTX11)
+	else if (GRAPHICS_API == DIRECTX11)
 	{
 		const char temp[] = " - DirectX 11";
 		strcat_s(windowTitle, temp);
@@ -53,7 +49,7 @@ bool WindowManager::Initialize()
 	}
 
 	mainWindow = glfwCreateWindow(windowWidth, windowHeight, windowTitle, NULL, NULL);
-	
+
 	if (mainWindow == NULL)
 	{
 		glfwTerminate();
@@ -67,11 +63,8 @@ bool WindowManager::Initialize()
 
 bool WindowManager::Shutdown()
 {
-
 	return true;
-
 }
-
 
 #pragma region Getter
 
@@ -82,15 +75,12 @@ int WindowManager::GetWindowWidth()
 
 int WindowManager::GetWindowHeight()
 {
-	
 	return windowHeight;
 }
 
 GLFWwindow* WindowManager::GetGLFWWindow()
 {
-	
 	return mainWindow;
-
 }
 
 #pragma endregion
@@ -99,17 +89,12 @@ GLFWwindow* WindowManager::GetGLFWWindow()
 
 void WindowManager::SetWindowWidth(int newWidth)
 {
-
 	windowWidth = newWidth;
-
 }
 
 void WindowManager::SetWindowHeight(int newHeight)
 {
-
 	windowHeight = newHeight;
-
 }
 
 #pragma endregion
-

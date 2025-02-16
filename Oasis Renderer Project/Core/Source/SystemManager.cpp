@@ -28,11 +28,6 @@ bool SystemManager::Initialize()
 	//Call WinManager Initialize
 	WinManager->Initialize();
 
-
-
-	//Create Renderer
-	renderer = new Graphics();
-
 	//Set Window
 	mainWindow = WinManager->GetGLFWWindow();
 	
@@ -44,10 +39,18 @@ bool SystemManager::Initialize()
 	}
 
 	//Setup gl viewport
-	glViewport(0, 0, WinManager->GetWindowWidth(), WinManager->GetWindowHeight());
+	//glViewport(0, 0, WinManager->GetWindowWidth(), WinManager->GetWindowHeight());
 
 	//Set framebuffer callback function
 	glfwSetFramebufferSizeCallback(mainWindow, framebuffer_size_callback);
+
+	//Create Renderer
+	renderer = new Graphics();
+
+	//Initialize Renderer
+	renderer->SetMainWindow(mainWindow);
+	renderer->Initialize();
+
 
 	return true;
 
@@ -56,8 +59,18 @@ bool SystemManager::Initialize()
 bool SystemManager::ProgramLoop()
 {
 
+	std::cout << "Starting Program Loop..." << std::endl;
+
 	while (!glfwWindowShouldClose(mainWindow))
 	{
+
+		//Process Input
+
+		//Process other information
+
+		//Render
+		renderer->Render();
+
 		glfwSwapBuffers(mainWindow);
 		glfwPollEvents();
 	}
