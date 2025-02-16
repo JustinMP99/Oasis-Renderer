@@ -1,0 +1,31 @@
+#pragma once
+#include <iostream>
+
+#include "../../SystemGlobals.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include "Graphics.h"
+#include "WindowManager.h"
+
+static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
+class SystemManager
+{
+
+private:
+
+	Graphics* renderer;
+	WindowManager* WinManager;
+
+	GLFWwindow* mainWindow;
+
+public:
+
+	bool Initialize();
+
+	bool ProgramLoop();
+
+	bool Shutdown();
+
+};
+

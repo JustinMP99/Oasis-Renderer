@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:SystemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:SystemManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Headers\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemGlobals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:SystemGlobals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\SystemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\SystemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\SystemManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Headers\\SystemManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\glad.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\glad.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Includes\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Core\\Includes\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,47 +46,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 198,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "SystemGlobals.h",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemGlobals.h",
+              "RelativeDocumentMoniker": "SystemGlobals.h",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemGlobals.h",
+              "RelativeToolTip": "SystemGlobals.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-16T01:44:52.834Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Main.cpp",
-              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Main.cpp",
-              "RelativeDocumentMoniker": "Main.cpp",
-              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Main.cpp",
-              "RelativeToolTip": "Main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp",
+              "RelativeDocumentMoniker": "Application\\Main.cpp",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp",
+              "RelativeToolTip": "Application\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-15T19:13:47.539Z",
+              "WhenOpened": "2025-02-15T23:39:29.309Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SystemManager.h",
-              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.h",
-              "RelativeDocumentMoniker": "SystemManager.h",
-              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.h",
-              "RelativeToolTip": "SystemManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Title": "WindowManager.h",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\WindowManager.h",
+              "RelativeDocumentMoniker": "Core\\Headers\\WindowManager.h",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\WindowManager.h",
+              "RelativeToolTip": "Core\\Headers\\WindowManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-15T19:36:57.251Z",
+              "WhenOpened": "2025-02-15T23:46:56.368Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SystemManager.cpp",
-              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.cpp",
-              "RelativeDocumentMoniker": "SystemManager.cpp",
-              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemManager.cpp",
-              "RelativeToolTip": "SystemManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAATAAAAAAAAAA==",
+              "Title": "WindowManager.cpp",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\WindowManager.cpp",
+              "RelativeDocumentMoniker": "Core\\Source\\WindowManager.cpp",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\WindowManager.cpp",
+              "RelativeToolTip": "Core\\Source\\WindowManager.cpp",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAF8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-15T19:41:21.382Z",
+              "WhenOpened": "2025-02-15T23:41:33.758Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SystemManager.h",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\SystemManager.h",
+              "RelativeDocumentMoniker": "Core\\Headers\\SystemManager.h",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\SystemManager.h",
+              "RelativeToolTip": "Core\\Headers\\SystemManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-15T23:40:00.635Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SystemManager.cpp",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\SystemManager.cpp",
+              "RelativeDocumentMoniker": "Core\\Source\\SystemManager.cpp",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\SystemManager.cpp",
+              "RelativeToolTip": "Core\\Source\\SystemManager.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-15T23:40:40.119Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -80,28 +138,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "WindowManager.h",
-              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\WindowManager.h",
-              "RelativeDocumentMoniker": "WindowManager.h",
-              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\WindowManager.h",
-              "RelativeToolTip": "WindowManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-15T20:09:45.65Z",
+              "DocumentIndex": 5,
+              "Title": "glad.c",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\glad.c",
+              "RelativeDocumentMoniker": "Core\\Source\\glad.c",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\glad.c",
+              "RelativeToolTip": "Core\\Source\\glad.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-02-16T01:36:52.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Graphics.h",
-              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Graphics.h",
-              "RelativeDocumentMoniker": "Graphics.h",
-              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Graphics.h",
-              "RelativeToolTip": "Graphics.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "glad.h",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Includes\\glad\\glad.h",
+              "RelativeDocumentMoniker": "Core\\Includes\\glad\\glad.h",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Includes\\glad\\glad.h",
+              "RelativeToolTip": "Core\\Includes\\glad\\glad.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-15T20:07:47.579Z",
+              "WhenOpened": "2025-02-16T01:30:08.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Graphics.cpp",
+              "DocumentMoniker": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp",
+              "RelativeDocumentMoniker": "Core\\Source\\Graphics.cpp",
+              "ToolTip": "E:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp",
+              "RelativeToolTip": "Core\\Source\\Graphics.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-15T23:41:44.371Z",
               "EditorCaption": ""
             }
           ]
