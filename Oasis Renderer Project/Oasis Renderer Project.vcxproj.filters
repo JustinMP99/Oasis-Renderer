@@ -31,7 +31,7 @@
     <ClInclude Include="Core\Headers\WindowManager.h">
       <Filter>Core\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="Core\Headers\GameObject.h">
       <Filter>Core\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,7 +51,7 @@
     <ClCompile Include="Core\Source\glad.c">
       <Filter>Core\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="Core\Source\GameObject.cpp">
       <Filter>Core\Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Includes;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Library;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Library;$(LibraryPath)</LibraryPath>
     <SourcePath>E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Application;E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -134,17 +134,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\Main.cpp" />
+    <ClCompile Include="Core\Source\GameObject.cpp" />
     <ClCompile Include="Core\Source\glad.c" />
     <ClCompile Include="Core\Source\Graphics.cpp" />
     <ClCompile Include="Core\Source\SystemManager.cpp" />
     <ClCompile Include="Core\Source\WindowManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Headers\GameObject.h" />
     <ClInclude Include="Core\Headers\Graphics.h" />
     <ClInclude Include="Core\Headers\SystemManager.h" />
     <ClInclude Include="Core\Headers\WindowManager.h" />
-    <ClInclude Include="GameObject.h" />
     <ClInclude Include="SystemGlobals.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
