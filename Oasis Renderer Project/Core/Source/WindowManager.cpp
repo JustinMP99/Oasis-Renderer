@@ -2,8 +2,6 @@
 
 //PRIVATE
 
-
-
 //PUBLIC
 
 bool WindowManager::Initialize()
@@ -18,6 +16,9 @@ bool WindowManager::Initialize()
 
 	//Set OpenGL version minor
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+	//Set Window Transparent
+	//glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GL_TRUE);
 
 	//Set the OpenGL profile to Core (Not Compatibility)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);

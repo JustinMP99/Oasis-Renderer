@@ -1,10 +1,8 @@
 #include "../Headers/SystemManager.h"
 
-#pragma region Private 
-
+#pragma region Private
 
 #pragma endregion
-
 
 #pragma region Public
 
@@ -15,7 +13,6 @@ static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 bool SystemManager::Initialize()
 {
-
 	std::cout << "Initializing..." << std::endl;
 
 	// Create Window Manager
@@ -30,7 +27,7 @@ bool SystemManager::Initialize()
 
 	//Set Window
 	mainWindow = WinManager->GetGLFWWindow();
-	
+
 	//Initialize GLAD
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -51,19 +48,15 @@ bool SystemManager::Initialize()
 	renderer->SetMainWindow(mainWindow);
 	renderer->Initialize();
 
-
 	return true;
-
 }
 
 bool SystemManager::ProgramLoop()
 {
-
 	std::cout << "Starting Program Loop..." << std::endl;
 
 	while (!glfwWindowShouldClose(mainWindow))
 	{
-
 		//Process Input
 
 		//Process other information
@@ -71,18 +64,15 @@ bool SystemManager::ProgramLoop()
 		//Render
 		renderer->Render();
 
-		glfwSwapBuffers(mainWindow);
+		//glfwSwapBuffers(mainWindow);
 		glfwPollEvents();
 	}
-
 
 	return true;
 }
 
-
 bool SystemManager::Shutdown()
 {
-
 	glfwTerminate();
 
 	//Release Renderer
@@ -96,10 +86,4 @@ bool SystemManager::Shutdown()
 	return true;
 }
 
-
-
-
 #pragma endregion
-
-
-

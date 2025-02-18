@@ -19,6 +19,9 @@
     <Filter Include="Application">
       <UniqueIdentifier>{30911ae2-08d0-43d1-9f12-cd5016bf3e32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\imgui">
+      <UniqueIdentifier>{f3e89c6c-9a55-473d-b881-27ef0b10ea5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemGlobals.h" />
@@ -33,6 +36,39 @@
     </ClInclude>
     <ClInclude Include="Core\Headers\GameObject.h">
       <Filter>Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imconfig.h">
+      <Filter>Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_impl_dx11.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_impl_glfw.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_impl_opengl3.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_impl_win32.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imgui_internal.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imstb_rectpack.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imstb_textedit.h">
+      <Filter>Core\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Includes\imgui\imstb_truetype.h">
+      <Filter>Core\imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +89,33 @@
     </ClCompile>
     <ClCompile Include="Core\Source\GameObject.cpp">
       <Filter>Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_demo.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_draw.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_impl_dx11.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_impl_glfw.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_impl_win32.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_tables.cpp">
+      <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Includes\imgui\imgui_widgets.cpp">
+      <Filter>Core\imgui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

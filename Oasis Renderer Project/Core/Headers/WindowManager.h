@@ -2,10 +2,8 @@
 #include "../../SystemGlobals.h"
 #include <GLFW\glfw3.h>
 
-
 class WindowManager
-{	
-
+{
 private:
 
 	char windowTitle[240];
@@ -30,7 +28,4 @@ public:
 	void SetWindowWidth(int newWidth);
 
 	void SetWindowHeight(int newHeight);
-
-
 };
-
