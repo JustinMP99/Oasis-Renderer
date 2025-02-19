@@ -71,9 +71,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\Core\Includes;D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Core\Library;D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Library;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(SolutionDir)\Core\Headers;$(SolutionDir)\Core\Includes\imgui;$(SolutionDir)\Application;E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Application;E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)\Core\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Core\Library;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)\Core\Headers;$(SolutionDir)\Core\Includes\imgui;$(SolutionDir)\Application;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -166,6 +166,10 @@
     <ClInclude Include="Core\Includes\imgui\imstb_textedit.h" />
     <ClInclude Include="Core\Includes\imgui\imstb_truetype.h" />
     <ClInclude Include="SystemGlobals.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Shaders\Fragment Shaders\FallbackFragment.frag" />
+    <None Include="Core\Shaders\Vertex Shaders\FallbackVertex.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

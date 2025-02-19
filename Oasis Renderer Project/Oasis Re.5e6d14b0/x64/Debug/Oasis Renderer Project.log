@@ -1,1 +1,20 @@
-﻿  Oasis Renderer Project.vcxproj -> E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe
+﻿  Main.cpp
+D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
+  (compiling source file 'Application/Main.cpp')
+      D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  Graphics.cpp
+D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
+  (compiling source file 'Core/Source/Graphics.cpp')
+      D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  SystemManager.cpp
+D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
+  (compiling source file 'Core/Source/SystemManager.cpp')
+      D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  Generating Code...
+  Oasis Renderer Project.vcxproj -> D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe

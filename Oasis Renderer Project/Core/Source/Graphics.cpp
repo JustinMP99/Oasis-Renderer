@@ -14,6 +14,7 @@ bool Graphics::Initialize()
 
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 	ImGui::StyleColorsDark();
 	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
@@ -58,6 +59,49 @@ bool Graphics::Shutdown()
 }
 
 //Additional Functions
+bool Graphics::CreateTriangle()
+{
+
+	//Generate Vertex Buffer
+	glGenBuffers(1, &VBO);
+
+	//Bind the buffer
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	//Set buffer data 
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	//Create Vertex Shader
+	vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
+	//Attach Source to Shader
+	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+
+	//Compile Vertex Shader
+	glCompileShader(vertexShader);
+
+	int success;
+	char infoLog[512];
+
+	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+
+	if (!success)
+	{
+		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+		
+	}
+
+	//Create Fragment Shader
+	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+
+	glCompileShader(fragmentShader);
+
+
+	return true;
+}
+
 bool Graphics::CreateCube()
 {
 	return true;
@@ -80,8 +124,6 @@ bool Graphics::RenderTestingWindow()
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-	
 
 	return true;
 	

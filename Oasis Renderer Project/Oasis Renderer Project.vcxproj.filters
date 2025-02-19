@@ -22,6 +22,15 @@
     <Filter Include="Core\imgui">
       <UniqueIdentifier>{f3e89c6c-9a55-473d-b881-27ef0b10ea5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Shaders">
+      <UniqueIdentifier>{0c65b550-9db1-4ce3-a60a-0dac333eebc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Shaders\Vertex Shaders">
+      <UniqueIdentifier>{81a8ed37-62dd-46a5-b492-5e60548e7e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Shaders\Fragment Shaders">
+      <UniqueIdentifier>{983e66d3-543d-4069-8733-d15b4694bd68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemGlobals.h" />
@@ -117,5 +126,13 @@
     <ClCompile Include="Core\Includes\imgui\imgui_widgets.cpp">
       <Filter>Core\imgui</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Shaders\Vertex Shaders\FallbackVertex.vert">
+      <Filter>Core\Shaders\Vertex Shaders</Filter>
+    </None>
+    <None Include="Core\Shaders\Fragment Shaders\FallbackFragment.frag">
+      <Filter>Core\Shaders\Fragment Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
