@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -35,10 +39,6 @@
       "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:SystemGlobals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Application\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5E6D14B0-7947-4892-BC72-F3A690A6C275}|Oasis Renderer Project.vcxproj|solutionrelative:Core\\Source\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -58,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 198,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "SystemGlobals.h",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\SystemGlobals.h",
               "RelativeDocumentMoniker": "SystemGlobals.h",
@@ -75,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Main.cpp",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Application\\Main.cpp",
               "RelativeDocumentMoniker": "Application\\Main.cpp",
@@ -84,7 +84,8 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-15T23:39:29.309Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -101,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SystemManager.cpp",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\SystemManager.cpp",
               "RelativeDocumentMoniker": "Core\\Source\\SystemManager.cpp",
@@ -114,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Graphics.h",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\Graphics.h",
               "RelativeDocumentMoniker": "Core\\Headers\\Graphics.h",
@@ -123,47 +124,20 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-16T23:07:17.441Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Graphics.cpp",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp",
               "RelativeDocumentMoniker": "Core\\Source\\Graphics.cpp",
               "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\Graphics.cpp",
               "RelativeToolTip": "Core\\Source\\Graphics.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAcwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-15T23:41:44.371Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FallbackFragment.frag",
-              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "RelativeDocumentMoniker": "Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "RelativeToolTip": "Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-19T00:25:09.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FallbackVertex.vert",
-              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
-              "RelativeDocumentMoniker": "Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
-              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
-              "RelativeToolTip": "Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-19T00:08:14.299Z",
               "EditorCaption": ""
             },
             {
@@ -172,7 +146,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "FallbackFragment.frag",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+              "RelativeDocumentMoniker": "Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+              "RelativeToolTip": "Core\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-19T00:25:09.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FallbackVertex.vert",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
+              "RelativeDocumentMoniker": "Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
+              "RelativeToolTip": "Core\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-19T00:08:14.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GameObject.h",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Headers\\GameObject.h",
               "RelativeDocumentMoniker": "Core\\Headers\\GameObject.h",
@@ -184,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GameObject.cpp",
               "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Oasis Renderer Project\\Core\\Source\\GameObject.cpp",
               "RelativeDocumentMoniker": "Core\\Source\\GameObject.cpp",
