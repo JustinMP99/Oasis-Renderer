@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "../../SystemGlobals.h"
 
 #if GRAPHICS_API == OPENGL
@@ -43,10 +44,12 @@ private:
 		"{\n"
 		"FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 		"}\0";
-
+  
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
 	unsigned int VBO;
+	unsigned int VAO;
+	unsigned int triangleProgram;
 	
 
 public:

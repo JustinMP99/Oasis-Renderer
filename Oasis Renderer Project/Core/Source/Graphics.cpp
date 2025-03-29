@@ -12,6 +12,9 @@ bool Graphics::Initialize()
 	//Setup Imgui
 	IMGUI_CHECKVERSION();
 
+	//Create Triangle
+	CreateTriangle();
+
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
@@ -41,6 +44,13 @@ bool Graphics::Render()
 	//ImGui
 	RenderTestingWindow();
 
+	//Render Triangle
+	glUseProgram(triangleProgram);
+	glBindVertexArray(VAO);
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+
 	//Swap buffer
 	glfwSwapBuffers(mainWindow);
 
@@ -61,6 +71,9 @@ bool Graphics::Shutdown()
 //Additional Functions
 bool Graphics::CreateTriangle()
 {
+
+	//Generate VAO
+	glGenVertexArrays(1, &VAO);
 
 	//Generate Vertex Buffer
 	glGenBuffers(1, &VBO);
@@ -87,6 +100,8 @@ bool Graphics::CreateTriangle()
 
 	if (!success)
 	{
+
+		std::cout << "Vertex Shader Failed" << std::endl;
 		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 		
 	}
@@ -97,6 +112,51 @@ bool Graphics::CreateTriangle()
 	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
 
 	glCompileShader(fragmentShader);
+
+	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+
+	if (!success)
+	{
+
+		std::cout << "Fragment Shader Failed" << std::endl;
+		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+
+	}
+
+	//Create Shader Program
+	triangleProgram = glCreateProgram();
+
+	//Attach Shaders to program
+	glAttachShader(triangleProgram, vertexShader);
+	glAttachShader(triangleProgram, fragmentShader);
+
+	//Link shaders to program
+	glLinkProgram(triangleProgram);
+
+	//Delete shaders (No longer used so they can be deleted)
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
+
+	//Bind VAO
+	glBindVertexArray(VAO);
+
+
+
+	//Bind VBO, specifying its a GL_ARRAY_BUFFER
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	//Fill the buffer data with data from the vertices
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	//Configure Vertex Attribute Pointer so OpenGL knows how to read the VBO
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	//Use Shader program
+	glUseProgram(triangleProgram);
+
+	//Bind
+
 
 
 	return true;

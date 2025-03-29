@@ -10,7 +10,7 @@ private:
 
 public:
 
-	//float vertexArray[];
+	float vertices[1] = {};
 	int indices[];
 
 
