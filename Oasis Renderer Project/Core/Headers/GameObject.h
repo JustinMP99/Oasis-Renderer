@@ -13,8 +13,4 @@ public:
 	float vertices[1] = {};
 	int indices[];
 
-
-
-
-
 };
