@@ -1,5 +1,7 @@
 
 #pragma once
+#include <vector>
+
 
 class GameObject
 {
@@ -9,8 +11,12 @@ private:
 
 
 public:
-
-	float vertices[1] = {};
-	int indices[];
+	
+	std::vector<float> vertices;
+	std::vector<int> indices;
+	unsigned int VBO;
+	unsigned int EBO;
+	unsigned int VAO;
+	unsigned int shaderProgram;
 
 };

@@ -12,15 +12,15 @@ bool Graphics::Initialize()
 	//Setup Imgui
 	IMGUI_CHECKVERSION();
 
-	//Create Triangle
-	CreateTriangle();
-
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 	ImGui::StyleColorsDark();
 	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
+
+	//Create Triangle
+	CreateTriangle();
 
 	return true;
 }
@@ -47,8 +47,11 @@ bool Graphics::Render()
 	//Render Triangle
 	glUseProgram(triangleProgram);
 	glBindVertexArray(VAO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+
+	//glDrawArrays(GL_TRIANGLES, 0, 3);
 
 
 	//Swap buffer
@@ -77,6 +80,9 @@ bool Graphics::CreateTriangle()
 
 	//Generate Vertex Buffer
 	glGenBuffers(1, &VBO);
+
+	//Generate Element Buffer
+	glGenBuffers(1, &EBO);
 
 	//Bind the buffer
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -140,13 +146,15 @@ bool Graphics::CreateTriangle()
 	//Bind VAO
 	glBindVertexArray(VAO);
 
-
-
 	//Bind VBO, specifying its a GL_ARRAY_BUFFER
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
 	//Fill the buffer data with data from the vertices
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	//Bind EBO
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	//Configure Vertex Attribute Pointer so OpenGL knows how to read the VBO
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
@@ -161,6 +169,15 @@ bool Graphics::CreateTriangle()
 
 	return true;
 }
+
+bool Graphics::CreateTriangleObject()
+{
+
+	//Create Triangle GameObject
+
+
+}
+
 
 bool Graphics::CreateCube()
 {
