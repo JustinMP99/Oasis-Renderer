@@ -29,4 +29,5 @@ public:
 	bool ProgramLoop();
 
 	bool Shutdown();
+
 };

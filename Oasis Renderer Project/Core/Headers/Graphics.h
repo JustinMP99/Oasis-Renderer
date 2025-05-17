@@ -19,7 +19,7 @@ private:
 
 	GLFWwindow* mainWindow;
 
-	bool showColor = true;
+	bool showBackground = true;
 
 	//Triangle Variables
 	float vertices[9] = {
@@ -69,6 +69,8 @@ public:
 	bool CreateCube();
 
 	bool RenderTestingWindow();
+
+	bool RenderAdditionalWindow();
 
 	//Getter
 

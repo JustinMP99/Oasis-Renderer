@@ -18,9 +18,27 @@ bool Graphics::Initialize()
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 	ImGui::StyleColorsDark();
 	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
+
+
+	//ImGui::CreateContext();
+	////ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	//ImGui::StyleColorsDark();
+	//ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
+	//ImGui_ImplOpenGL3_Init("#version 330");
+
+	/*ImGui::CreateContext();
+	ImGuiIO& ioTwo = ImGui::GetIO(); (void)ioTwo;
+	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	ImGui::StyleColorsDark();
+	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);*/
+	//ImGui_ImplOpenGL3_Init("#version 330");
+
+
 
 	return true;
 }
@@ -32,17 +50,15 @@ bool Graphics::Render()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	//Clear to specific Color
-	if (showColor)
+	if (showBackground)
 	{
-		glClearColor(0.75f, 0.5f, 0.0f, 1.0f);
+		glClearColor(0.50f, 0.5f, 0.0f, 1.0f);
 	}
 	else
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 	
-	//ImGui
-	RenderTestingWindow();
 
 	//Render Triangle
 	glUseProgram(triangleProgram);
@@ -50,6 +66,18 @@ bool Graphics::Render()
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
+	//ImGui
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::NewFrame();
+	
+	RenderTestingWindow();
+
+	RenderAdditionalWindow();
+
+	ImGui::Render();
+
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	//Swap buffer
 	glfwSwapBuffers(mainWindow);
@@ -170,23 +198,38 @@ bool Graphics::CreateCube()
 bool Graphics::RenderTestingWindow()
 {
 
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
+	//ImGui_ImplOpenGL3_NewFrame();
+	//ImGui_ImplGlfw_NewFrame();
+	//ImGui::NewFrame();
 
-	ImGui::Begin("Testing Values");
+	ImGui::Begin("Window Test");
 
 	ImGui::Text("Control testing values here");
 
-	ImGui::Checkbox("Show Color: ", &showColor);
+	ImGui::Checkbox("Show Background: ", &showBackground);
 
 	ImGui::End();
 
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	//ImGui::Render();
+
+	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	return true;
 	
+}
+
+bool Graphics::RenderAdditionalWindow()
+{
+	//ImGui_ImplOpenGL3_NewFrame();
+	//ImGui_ImplGlfw_NewFrame();
+	//ImGui::NewFrame();
+	ImGui::Begin("Another Window");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+	ImGui::Text("Hello from another window!");
+	ImGui::End();
+	//ImGui::Render();
+	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+	return true;
 }
 
 #pragma region Getter

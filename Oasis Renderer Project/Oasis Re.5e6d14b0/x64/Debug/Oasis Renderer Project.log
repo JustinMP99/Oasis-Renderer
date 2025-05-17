@@ -1,43 +1,7 @@
-﻿  Main.cpp
-E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
-  (compiling source file 'Application/Main.cpp')
-      E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
-      This member will be ignored by a defaulted constructor or copy/move assignment operator
-  
-  Graphics.cpp
-E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
+﻿  Graphics.cpp
+D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
   (compiling source file 'Core/Source/Graphics.cpp')
-      E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
+      D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
       This member will be ignored by a defaulted constructor or copy/move assignment operator
   
-  SystemManager.cpp
-E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6): warning C4200: nonstandard extension used: zero-sized array in struct/union
-  (compiling source file 'Core/Source/SystemManager.cpp')
-      E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\Core\Headers\GameObject.h(14,6):
-      This member will be ignored by a defaulted constructor or copy/move assignment operator
-  
-  WindowManager.cpp
-  Generating Code...
-  LINK : E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe not found or not built by the last incremental link; performing full link
-glfw3.lib(init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(input.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(input.obj)' or at ''; linking object as if no debug info
-glfw3.lib(context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(vulkan.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_time.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_thread.obj)' or at ''; linking object as if no debug info
-glfw3.lib(platform.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(platform.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(wgl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(egl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_module.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_module.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_joystick.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_joystick.obj)' or at ''; linking object as if no debug info
-  Oasis Renderer Project.vcxproj -> E:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe
+  Oasis Renderer Project.vcxproj -> D:\Projects\Graphics\Oasis-Renderer\Oasis Renderer Project\x64\Debug\Oasis Renderer Project.exe
