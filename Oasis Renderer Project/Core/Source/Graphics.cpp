@@ -15,30 +15,8 @@ bool Graphics::Initialize()
 	//Create Triangle
 	CreateTriangle();
 
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-	ImGui::StyleColorsDark();
-	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
-	ImGui_ImplOpenGL3_Init("#version 330");
-
-
-	//ImGui::CreateContext();
-	////ImGuiIO& io = ImGui::GetIO(); (void)io;
-	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	//ImGui::StyleColorsDark();
-	//ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
-	//ImGui_ImplOpenGL3_Init("#version 330");
-
-	/*ImGui::CreateContext();
-	ImGuiIO& ioTwo = ImGui::GetIO(); (void)ioTwo;
-	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	ImGui::StyleColorsDark();
-	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);*/
-	//ImGui_ImplOpenGL3_Init("#version 330");
-
-
+	//Initialize ImGui
+	InitializeImGui();
 
 	return true;
 }
@@ -58,26 +36,20 @@ bool Graphics::Render()
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
-	
 
 	//Render Triangle
-	glUseProgram(triangleProgram);
-	glBindVertexArray(VAO);
+	if (showTriangle)
+	{
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+		glUseProgram(triangleProgram);
+		glBindVertexArray(VAO);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	}
 
 	//ImGui
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
-	
-	RenderTestingWindow();
-
-	RenderAdditionalWindow();
-
-	ImGui::Render();
-
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	RenderGUI();
 
 	//Swap buffer
 	glfwSwapBuffers(mainWindow);
@@ -94,6 +66,22 @@ bool Graphics::Shutdown()
 	ImGui::DestroyContext();
 
 	return true;
+}
+
+bool Graphics::InitializeImGui()
+{
+
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+	ImGui::StyleColorsDark();
+	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
+	ImGui_ImplOpenGL3_Init("#version 330");
+
+
+	return true;
+
 }
 
 //Additional Functions
@@ -195,24 +183,40 @@ bool Graphics::CreateCube()
 	return true;
 }
 
-bool Graphics::RenderTestingWindow()
+
+bool Graphics::RenderGUI()
 {
 
-	//ImGui_ImplOpenGL3_NewFrame();
-	//ImGui_ImplGlfw_NewFrame();
-	//ImGui::NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::NewFrame();
 
-	ImGui::Begin("Window Test");
+	RenderInspector();
+
+	RenderAdditionalWindow();
+
+	ImGui::ShowDemoWindow();
+
+	ImGui::Render();
+
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+	return true;
+
+}
+
+bool Graphics::RenderInspector()
+{
+
+	ImGui::Begin("Scene Inspector");
 
 	ImGui::Text("Control testing values here");
 
 	ImGui::Checkbox("Show Background: ", &showBackground);
 
+	ImGui::Checkbox("Show Triangle: ", &showTriangle);
+
 	ImGui::End();
-
-	//ImGui::Render();
-
-	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	return true;
 	
@@ -220,14 +224,10 @@ bool Graphics::RenderTestingWindow()
 
 bool Graphics::RenderAdditionalWindow()
 {
-	//ImGui_ImplOpenGL3_NewFrame();
-	//ImGui_ImplGlfw_NewFrame();
-	//ImGui::NewFrame();
+
 	ImGui::Begin("Another Window");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 	ImGui::Text("Hello from another window!");
 	ImGui::End();
-	//ImGui::Render();
-	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	return true;
 }
