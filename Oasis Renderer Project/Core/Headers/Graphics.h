@@ -22,6 +22,8 @@ private:
 	bool showBackground = true;
 	bool showTriangle = true;
 
+	std::vector<GameObject*> sceneObjects;
+
 	//Triangle Variables
 	float vertices[9] = {
 	
@@ -48,6 +50,9 @@ private:
   
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
+
+	unsigned int fallbackVertexShader;
+	unsigned int fallbackFragShader;
 	unsigned int VBO;
 	unsigned int VAO;
 	unsigned int triangleProgram;
@@ -63,13 +68,9 @@ public:
 
 	bool Shutdown();
 
-	//Additional Functions
-	
+	//UI Functions (ImGui)
+
 	bool InitializeImGui();
-
-	bool CreateTriangle();
-
-	bool CreateCube();
 
 	bool RenderGUI();
 
@@ -77,10 +78,22 @@ public:
 
 	bool RenderAdditionalWindow();
 
+	bool InitializeDockspace();
+
+	//Additional Functions
+	bool CompileShaders();
+
+	bool CreateTriangle();
+
+	bool CreateTriangleGameobject();
+
+	bool CreateCube();
+
 	//Getter
 
 	//Setter
 	void SetMainWindow(GLFWwindow* window);
 
 	Graphics() = default;
+
 };
