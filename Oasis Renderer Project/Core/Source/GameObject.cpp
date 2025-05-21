@@ -4,9 +4,9 @@
 GameObject::GameObject()
 {
 
-	VAO = new unsigned int;
-	VBO = new unsigned int;
-	EBO = new unsigned int;
+	VAO = new GLuint;
+	VBO = new GLuint;
+	EBO = new GLuint;
 
 }
 

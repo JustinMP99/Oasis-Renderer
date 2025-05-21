@@ -19,9 +19,6 @@ bool Graphics::Initialize()
 	//Create Triangle Game Object
 	CreateTriangleGameobject();
 
-	//Create Triangle
-	//CreateTriangle();
-
 	//Initialize ImGui
 	InitializeImGui();
 
@@ -44,26 +41,23 @@ bool Graphics::Render()
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 
-	//Render Triangle
-	//if (showTriangle)
-	//{
-
-	//	glUseProgram(triangleProgram);
-	//	glBindVertexArray(VAO);
-
-	//	glDrawArrays(GL_TRIANGLES, 0, 3);
-
-	//}
-
-
-	for (int i = 0; i < sceneObjects.size(); i++)
+	if (showTriangle)
 	{
-		glUseProgram(sceneObjects[i]->shaderProgram);
-		glBindVertexArray(*sceneObjects[i]->VAO);
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		for (int i = 0; i < sceneObjects.size(); i++)
+		{
+			
+			glUseProgram(sceneObjects[i]->shaderProgram);
+			
+			glBindVertexArray(*sceneObjects[i]->VAO);
+			
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+
+			glBindVertexArray(0);
+
+		}
+
 	}
-
 
 	//ImGui
 	RenderGUI();
@@ -117,7 +111,7 @@ bool Graphics::RenderGUI()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
 
-	InitializeDockspace();
+	//InitializeDockspace();
 
 	RenderInspector();
 
@@ -258,6 +252,11 @@ bool Graphics::CompileShaders()
 }
 
 //Additional Functions
+
+/// <summary>
+/// Creates a Triangle for rendering
+/// </summary>
+/// <returns>True if successful</returns>
 bool Graphics::CreateTriangle()
 {
 
@@ -357,38 +356,49 @@ bool Graphics::CreateTriangleGameobject()
 	GameObject* newGameObject = new GameObject();
 
 	//Set Vertex & Index array
-	float tempArr[9] = {
+	Vertex tempArr[3] = {
 
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.0f, 0.5f, 0.0f
+		 Vertex(-0.5f, -0.5f, 0.0f),
+		 Vertex( 0.5f, -0.5f, 0.0f),
+		 Vertex( 0.0f,  0.5f, 0.0f)
 
 	};
 	
-	float tempIndex[3] =
+	unsigned int tempIndex[3] =
 	{
 		0, 1, 2
 	};
 
 
-	newGameObject->vertices = new float[9];
-	memcpy(newGameObject->vertices, tempArr, 9 * sizeof(float));
+	newGameObject->vertices = new Vertex[3];
+	memcpy(newGameObject->vertices, tempArr, 3 * sizeof(Vertex));
+
+	newGameObject->indices = new unsigned int[3];
+	memcpy(newGameObject->indices, tempIndex, 3 * sizeof(unsigned int));
+
 
 	glGenVertexArrays(1, newGameObject->VAO);
 	
 	glBindVertexArray(*newGameObject->VAO);
 
-	//Generate & Bind VBO
+	//Generate, Bind & Fill VBO
 	glGenBuffers(1, newGameObject->VBO);
+
 	glBindBuffer(GL_ARRAY_BUFFER, *newGameObject->VBO);
 
-	//Fill bound buffer
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), newGameObject->vertices, GL_STATIC_DRAW);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(tempArr), tempArr, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(Vertex), newGameObject->vertices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	//Generate, Bind & Fill EBO
+	glGenBuffers(1, newGameObject->EBO);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *newGameObject->EBO);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * sizeof(unsigned int), newGameObject->indices, GL_STATIC_DRAW);
+
+	//Set Vertex Attribute Pointers
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
+
 	glEnableVertexAttribArray(0);
-
 
 	//Create Program and assign shaders
 	newGameObject->shaderProgram = glCreateProgram();

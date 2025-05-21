@@ -1,5 +1,9 @@
 
 #pragma once
+#include "../Includes/glad/glad.h"
+//#include "../DataTypes/Vertex.h"
+#include "../../Vertex.h"
+
 
 class GameObject
 {
@@ -12,11 +16,11 @@ public:
 
 
 	//Mesh Variables
-	float *vertices;
-	float *indices[1] = {};
-	unsigned int* VBO; //Holds ID to Vertex Buffer
-	unsigned int* EBO; //Holds ID to Index Buffer
-	unsigned int* VAO; //Holds ID to Vertex Array 
+	Vertex* vertices;
+	unsigned int* indices;
+	GLuint* VBO; //Holds ID to Vertex Buffer
+	GLuint* EBO; //Holds ID to Index Buffer
+	GLuint* VAO; //Holds ID to Vertex Array 
 
 
 	//Material Variables

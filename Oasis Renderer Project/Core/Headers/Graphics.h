@@ -13,6 +13,8 @@
 
 #include "GameObject.h"
 
+#pragma deprecated(CreateTriaangle())
+
 class Graphics
 {
 private:
@@ -25,7 +27,7 @@ private:
 	std::vector<GameObject*> sceneObjects;
 
 
-
+	
 
 	//Triangle Variables
 	float vertices[9] = {

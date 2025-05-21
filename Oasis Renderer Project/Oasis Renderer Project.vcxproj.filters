@@ -31,6 +31,9 @@
     <Filter Include="Core\Shaders\Fragment Shaders">
       <UniqueIdentifier>{983e66d3-543d-4069-8733-d15b4694bd68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Data Types">
+      <UniqueIdentifier>{64903e12-c784-4791-8d43-87bbce178313}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemGlobals.h" />
@@ -79,6 +82,9 @@
     <ClInclude Include="Core\Includes\imgui\imstb_truetype.h">
       <Filter>Core\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Core\Data Types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Main.cpp">
@@ -125,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="Core\Includes\imgui\imgui_widgets.cpp">
       <Filter>Core\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Core\Data Types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

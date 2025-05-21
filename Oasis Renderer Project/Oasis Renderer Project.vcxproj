@@ -148,6 +148,7 @@
     <ClCompile Include="Core\Source\Graphics.cpp" />
     <ClCompile Include="Core\Source\SystemManager.cpp" />
     <ClCompile Include="Core\Source\WindowManager.cpp" />
+    <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Headers\GameObject.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Core\Includes\imgui\imstb_textedit.h" />
     <ClInclude Include="Core\Includes\imgui\imstb_truetype.h" />
     <ClInclude Include="SystemGlobals.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Shaders\Fragment Shaders\FallbackFragment.frag" />
