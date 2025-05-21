@@ -20,10 +20,10 @@ bool Graphics::Initialize()
 	CreateTriangleGameobject();
 
 	//Create Triangle
-	CreateTriangle();
+	//CreateTriangle();
 
 	//Initialize ImGui
-	//InitializeImGui();
+	InitializeImGui();
 
 	return true;
 }
@@ -66,7 +66,7 @@ bool Graphics::Render()
 
 
 	//ImGui
-	//RenderGUI();
+	RenderGUI();
 
 	//Swap buffer
 	glfwSwapBuffers(mainWindow);
@@ -81,6 +81,13 @@ bool Graphics::Shutdown()
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
+
+	//Destroy all GameObjects
+	for (int i = 0; i < sceneObjects.size(); i++)
+	{
+		
+		delete sceneObjects[i];
+	}
 
 	return true;
 }
@@ -363,21 +370,25 @@ bool Graphics::CreateTriangleGameobject()
 		0, 1, 2
 	};
 
-	*newGameObject->vertices = tempArr;
-	*newGameObject->indices = tempIndex;
 
-	std::cout << " Hello" + sizeof(newGameObject->vertices);
+	newGameObject->vertices = new float[9];
+	memcpy(newGameObject->vertices, tempArr, 9 * sizeof(float));
+
+	glGenVertexArrays(1, newGameObject->VAO);
+	
+	glBindVertexArray(*newGameObject->VAO);
 
 	//Generate & Bind VBO
 	glGenBuffers(1, newGameObject->VBO);
-
 	glBindBuffer(GL_ARRAY_BUFFER, *newGameObject->VBO);
 
 	//Fill bound buffer
-	glBufferData(GL_STATIC_DRAW, sizeof(tempArr), tempArr, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), newGameObject->vertices, GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(tempArr), tempArr, GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
 
 	//Create Program and assign shaders
 	newGameObject->shaderProgram = glCreateProgram();
@@ -387,12 +398,10 @@ bool Graphics::CreateTriangleGameobject()
 
 	glLinkProgram(newGameObject->shaderProgram);
 
-	glBindVertexArray(*newGameObject->VAO);
-
 	//Add object to list
 	sceneObjects.push_back(newGameObject);
 
-	return false;
+	return true;
 }
 
 bool Graphics::CreateCube()

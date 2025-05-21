@@ -12,7 +12,7 @@ public:
 
 
 	//Mesh Variables
-	float *vertices[1] = {};
+	float *vertices;
 	float *indices[1] = {};
 	unsigned int* VBO; //Holds ID to Vertex Buffer
 	unsigned int* EBO; //Holds ID to Index Buffer
@@ -20,11 +20,12 @@ public:
 
 
 	//Material Variables
-	unsigned int* vertexShader;
-	unsigned int* fragmentShader;
+	unsigned int vertexShader;
+	unsigned int fragmentShader;
 	unsigned int shaderProgram;
 
 	GameObject();
+	~GameObject();
 
 
 };

@@ -24,6 +24,9 @@ private:
 
 	std::vector<GameObject*> sceneObjects;
 
+
+
+
 	//Triangle Variables
 	float vertices[9] = {
 	

@@ -9,3 +9,7 @@ GameObject::GameObject()
 	EBO = new unsigned int;
 
 }
+
+GameObject::~GameObject()
+{
+}

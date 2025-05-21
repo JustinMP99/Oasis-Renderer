@@ -6,7 +6,6 @@
 #define GLFW 1
 #define NATIVE 2
 
-#define WINDOW_METHOD GLFW
 #define GRAPHICS_API OPENGL
 
 #include "string"

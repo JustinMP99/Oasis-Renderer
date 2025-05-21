@@ -2,6 +2,8 @@
 #include "../../SystemGlobals.h"
 #include <GLFW\glfw3.h>
 
+
+
 class WindowManager
 {
 private:
@@ -10,6 +12,8 @@ private:
 	GLFWwindow* mainWindow = NULL;
 	int windowHeight;
 	int windowWidth;
+
+#define WINDOW_METHOD GLFW
 
 public:
 
