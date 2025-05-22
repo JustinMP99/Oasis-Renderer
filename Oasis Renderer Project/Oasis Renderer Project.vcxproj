@@ -146,6 +146,7 @@
     <ClCompile Include="Core\Source\GameObject.cpp" />
     <ClCompile Include="Core\Source\glad.c" />
     <ClCompile Include="Core\Source\Graphics.cpp" />
+    <ClCompile Include="Core\Source\Material.cpp" />
     <ClCompile Include="Core\Source\SystemManager.cpp" />
     <ClCompile Include="Core\Source\WindowManager.cpp" />
     <ClCompile Include="Vertex.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Core\Headers\GameObject.h" />
     <ClInclude Include="Core\Headers\Graphics.h" />
+    <ClInclude Include="Core\Headers\Material.h" />
     <ClInclude Include="Core\Headers\SystemManager.h" />
     <ClInclude Include="Core\Headers\WindowManager.h" />
     <ClInclude Include="Core\Includes\imgui\imconfig.h" />

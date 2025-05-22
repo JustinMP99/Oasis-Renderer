@@ -14,7 +14,7 @@ bool Graphics::Initialize()
 
 
 	//Compile all shaders
-	CompileShaders();
+	//CompileShaders();
 
 	//Create Triangle Game Object
 	CreateTriangleGameobject();
@@ -47,8 +47,10 @@ bool Graphics::Render()
 		for (int i = 0; i < sceneObjects.size(); i++)
 		{
 			
-			glUseProgram(sceneObjects[i]->shaderProgram);
+			//glUseProgram();
 			
+			sceneObjects[i]->material->Use();
+
 			glBindVertexArray(*sceneObjects[i]->VAO);
 			
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
@@ -205,6 +207,11 @@ bool Graphics::RenderAdditionalWindow()
 	ImGui::End();
 
 	return true;
+}
+
+bool Graphics::InitializeShaders()
+{
+	return false;
 }
 
 bool Graphics::CompileShaders()
@@ -400,13 +407,18 @@ bool Graphics::CreateTriangleGameobject()
 
 	glEnableVertexAttribArray(0);
 
-	//Create Program and assign shaders
-	newGameObject->shaderProgram = glCreateProgram();
+	//Create & Assign Material
+	fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
 
-	glAttachShader(newGameObject->shaderProgram, fallbackVertexShader);
-	glAttachShader(newGameObject->shaderProgram, fallbackFragShader);
+	newGameObject->material = fallbackMat;
 
-	glLinkProgram(newGameObject->shaderProgram);
+	////Create Program and assign shaders
+	//newGameObject->shaderProgram = glCreateProgram();
+
+	//glAttachShader(newGameObject->shaderProgram, fallbackVertexShader);
+	//glAttachShader(newGameObject->shaderProgram, fallbackFragShader);
+
+	//glLinkProgram(newGameObject->shaderProgram);
 
 	//Add object to list
 	sceneObjects.push_back(newGameObject);

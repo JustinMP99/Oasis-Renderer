@@ -85,6 +85,9 @@
     <ClInclude Include="Vertex.h">
       <Filter>Core\Data Types</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Headers\Material.h">
+      <Filter>Core\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="Vertex.cpp">
       <Filter>Core\Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Source\Material.cpp">
+      <Filter>Core\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

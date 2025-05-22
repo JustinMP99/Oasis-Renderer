@@ -1,10 +1,5 @@
 #include "../Headers/SystemManager.h"
 
-#pragma region Private
-
-#pragma endregion
-
-#pragma region Public
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -34,9 +29,6 @@ bool SystemManager::Initialize()
 		std::cout << "Failed to Initialize GLAD!" << std::endl;
 		return false;
 	}
-
-	//Setup gl viewport
-	//glViewport(0, 0, WinManager->GetWindowWidth(), WinManager->GetWindowHeight());
 
 	//Set framebuffer callback function
 	glfwSetFramebufferSizeCallback(mainWindow, framebuffer_size_callback);
@@ -85,5 +77,3 @@ bool SystemManager::Shutdown()
 
 	return true;
 }
-
-#pragma endregion

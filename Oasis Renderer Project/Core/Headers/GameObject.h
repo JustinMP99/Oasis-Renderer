@@ -3,7 +3,7 @@
 #include "../Includes/glad/glad.h"
 //#include "../DataTypes/Vertex.h"
 #include "../../Vertex.h"
-
+#include "Material.h"
 
 class GameObject
 {
@@ -24,6 +24,9 @@ public:
 
 
 	//Material Variables
+
+	Material* material;
+
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
 	unsigned int shaderProgram;

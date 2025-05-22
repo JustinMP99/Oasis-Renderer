@@ -38,6 +38,10 @@ private:
 
 	};
 
+	const char* fallbackVertexShaderPath = "./Core/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
+	const char* fallbackFragmentShaderPath = "./Core/Shaders/Fragment Shaders/FallbackFragment.frag";
+	Material* fallbackMat;
+
 	const char* vertexShaderSource = "#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;\n"
 		"void main()\n"
@@ -84,6 +88,11 @@ public:
 	bool RenderAdditionalWindow();
 
 	bool InitializeDockspace();
+
+
+	//Helper Functions
+
+	bool InitializeShaders();
 
 	//Additional Functions
 	bool CompileShaders();
