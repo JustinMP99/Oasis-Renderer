@@ -1,0 +1,25 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\macOS - arm64",
+      "out\\build\\Windows",
+      "out\\install\\Windows",
+      "out\\build\\Linux",
+      "out\\install\\Linux"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\Additional\\Includes\\KHR",
+    "\\Core",
+    "\\out",
+    "\\out\\build",
+    "\\Source",
+    "\\Source\\Shaders",
+    "\\Source\\Shaders\\Fragment Shaders",
+    "\\Source\\Shaders\\Vertex Shaders",
+    "\\Source\\Source"
+  ],
+  "SelectedNode": "\\Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+  "PreviewInSolutionExplorer": false
+}
