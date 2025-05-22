@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>G:\Projects\Graphics\Oasis-Renderer\out\build\Windows\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\Projects\Graphics\Oasis-Renderer\out\build\Windows\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>G:\Projects\Graphics\Oasis-Renderer\out\build\Windows\Debug\OpenGLRenderer.exe</FullPath>
+      <FullPath>D:\Projects\Graphics\Oasis-Renderer\out\build\Windows\Debug\OpenGLRenderer.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

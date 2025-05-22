@@ -1,8 +1,8 @@
-# Install script for directory: G:/Projects/Graphics/Oasis-Renderer
+# Install script for directory: D:/Projects/Graphics/Oasis-Renderer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "G:/Projects/Graphics/Oasis-Renderer/out/install/Windows")
+  set(CMAKE_INSTALL_PREFIX "D:/Projects/Graphics/Oasis-Renderer/out/install/Windows")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -47,6 +47,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "G:/Projects/Graphics/Oasis-Renderer/out/build/Windows/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "D:/Projects/Graphics/Oasis-Renderer/out/build/Windows/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

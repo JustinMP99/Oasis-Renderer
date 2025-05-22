@@ -1,6 +1,6 @@
-^G:\PROJECTS\GRAPHICS\OASIS-RENDERER\OUT\BUILD\WINDOWS\CMAKEFILES\583F3576BF46A2C72046BA5914EFED09\GENERATE.STAMP.RULE
+^D:\PROJECTS\GRAPHICS\OASIS-RENDERER\OUT\BUILD\WINDOWS\CMAKEFILES\8FDF65EFE1F864EB2E32331AB0B51C60\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SG:/Projects/Graphics/Oasis-Renderer -BG:/Projects/Graphics/Oasis-Renderer/out/build/Windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file G:/Projects/Graphics/Oasis-Renderer/out/build/Windows/OpenGLRenderer.sln
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Projects/Graphics/Oasis-Renderer -BD:/Projects/Graphics/Oasis-Renderer/out/build/Windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Projects/Graphics/Oasis-Renderer/out/build/Windows/OpenGLRenderer.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

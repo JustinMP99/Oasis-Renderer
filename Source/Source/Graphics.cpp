@@ -48,7 +48,7 @@ bool Graphics::Render()
 		for (int i = 0; i < sceneObjects.size(); i++)
 		{
 			
-			//glUseProgram();
+			glUseProgram(fallbackProgram);
 			
 			//sceneObjects[i]->material->Use();
 

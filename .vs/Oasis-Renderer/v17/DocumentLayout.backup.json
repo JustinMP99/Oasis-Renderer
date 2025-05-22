@@ -1,21 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\Projects\\Graphics\\Oasis-Renderer\\",
+  "WorkspaceRootPath": "D:\\Projects\\Graphics\\Oasis-Renderer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Source\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Core\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Source\\Headers\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Material.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Source\\Headers\\Material.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Source\\Source\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\CMakePresets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakePresets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -26,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 198,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CMakeLists.txt",
-              "DocumentMoniker": "G:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt",
               "RelativeDocumentMoniker": "CMakeLists.txt",
-              "ToolTip": "G:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\CMakeLists.txt",
               "RelativeToolTip": "CMakeLists.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-05-22T18:40:33.504Z",
               "IsPinned": true,
@@ -44,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Main.cpp",
-              "DocumentMoniker": "G:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp",
               "RelativeDocumentMoniker": "Core\\Main.cpp",
-              "ToolTip": "G:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Core\\Main.cpp",
               "RelativeToolTip": "Core\\Main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-22T18:40:30.446Z",
               "IsPinned": true,
@@ -62,28 +70,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FallbackFragment.frag",
-              "DocumentMoniker": "G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "RelativeDocumentMoniker": "Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "ToolTip": "G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "RelativeToolTip": "Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-22T19:43:22.02Z",
+              "DocumentIndex": 1,
+              "Title": "Graphics.h",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Graphics.h",
+              "RelativeDocumentMoniker": "Source\\Headers\\Graphics.h",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Graphics.h",
+              "RelativeToolTip": "Source\\Headers\\Graphics.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-22T22:29:57.217Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Material.h",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Material.h",
+              "RelativeDocumentMoniker": "Source\\Headers\\Material.h",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Headers\\Material.h",
+              "RelativeToolTip": "Source\\Headers\\Material.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-22T22:29:56.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Graphics.cpp",
-              "DocumentMoniker": "G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp",
               "RelativeDocumentMoniker": "Source\\Source\\Graphics.cpp",
-              "ToolTip": "G:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\Source\\Source\\Graphics.cpp",
               "RelativeToolTip": "Source\\Source\\Graphics.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAKkBAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T19:39:52.159Z",
+              "WhenOpened": "2025-05-22T22:29:10.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CMakePresets.json",
+              "DocumentMoniker": "D:\\Projects\\Graphics\\Oasis-Renderer\\CMakePresets.json",
+              "RelativeDocumentMoniker": "CMakePresets.json",
+              "ToolTip": "D:\\Projects\\Graphics\\Oasis-Renderer\\CMakePresets.json",
+              "RelativeToolTip": "CMakePresets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-22T22:27:42.284Z",
               "EditorCaption": ""
             }
           ]

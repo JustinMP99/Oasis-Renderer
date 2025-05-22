@@ -10,16 +10,14 @@
   },
   "ExpandedNodes": [
     "",
-    "\\Additional\\Includes\\KHR",
+    "\\Additional",
     "\\Core",
     "\\out",
     "\\out\\build",
     "\\Source",
-    "\\Source\\Shaders",
-    "\\Source\\Shaders\\Fragment Shaders",
-    "\\Source\\Shaders\\Vertex Shaders",
+    "\\Source\\Headers",
     "\\Source\\Source"
   ],
-  "SelectedNode": "\\Source\\Shaders\\Fragment Shaders\\FallbackFragment.frag",
+  "SelectedNode": "\\Core\\Main.cpp",
   "PreviewInSolutionExplorer": false
 }
