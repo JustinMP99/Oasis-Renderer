@@ -12,4 +12,9 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+
+	delete VAO;
+	delete VBO;
+	delete EBO;
+
 }
