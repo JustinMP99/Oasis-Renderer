@@ -8,8 +8,11 @@
 std::string GetFileContents(const char* filename)
 {
 
-	std::ifstream in(filename, std::ios::binary);
-	if (in)
+	std::string result = "";
+	std::string line = "";
+	std::ifstream in(filename);
+
+	if (in.is_open())
 	{
 		std::string contents;
 		in.seekg(0, std::ios::end);
@@ -27,6 +30,12 @@ std::string GetFileContents(const char* filename)
 
 Material::Material(const char* vertexPath, const char* fragmentPath)
 {
+
+
+	//Get the contents of the files passed in
+
+
+	//Read the files
 
 	//Retrieve the Vertex/Fragment source from the given filepaths
 	std::string vertexCode;
@@ -57,7 +66,7 @@ Material::Material(const char* vertexPath, const char* fragmentPath)
 	}
 	catch (std::ifstream::failure e)
 	{
-
+		std::cout << "Error Reading File from File Path\n" << std::endl;
 	}
 
 	const char* vShaderCode = vertexCode.c_str();

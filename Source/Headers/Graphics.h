@@ -35,8 +35,8 @@ private:
 
 	};
 
-	const char* fallbackVertexShaderPath = "../Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
-	const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis - Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
+	const char* fallbackVertexShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
+	const char* fallbackFragmentShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
 	Material* fallbackMat;
 
 	const char* vertexShaderSource = "#version 330 core\n"

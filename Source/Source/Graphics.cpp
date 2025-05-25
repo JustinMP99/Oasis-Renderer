@@ -15,6 +15,8 @@ bool Graphics::Initialize()
 	//Compile all shaders
 	CompileShaders();
 
+	glUseProgram(fallbackProgram);
+
 	//glLinkProgram(fallbackProgram);
 
 	//Create Triangle Game Object
@@ -47,8 +49,6 @@ bool Graphics::Render()
 
 		for (int i = 0; i < sceneObjects.size(); i++)
 		{
-			
-			glUseProgram(fallbackProgram);
 			
 			//sceneObjects[i]->material->Use();
 

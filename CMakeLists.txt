@@ -27,6 +27,7 @@ Source/Source/glad.c
 set(GLAD_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/glad")
 set(GLFW_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/GLFW")
 set(KHR_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/KHR")
+set(FRAG_DIR "${CMAKE_SOURCE_DIR}/Source/Shaders/Fragment Shaders")
 
 set(IMGUI_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/imgui")
 set(GLFW_LIBRARY "${CMAKE_SOURCE_DIR}/Additional/Library/glfw3.lib")
@@ -38,6 +39,7 @@ target_include_directories(OpenGLRenderer PRIVATE
 	${GLFW_INCLUDE_DIR} 
 	#${IMGUI_INCLUDE_DIR} 
 	${KHR_INCLUDE_DIR}
+	${FRAG_DIR}
 )
 
 # Link GLFW and OpenGL
