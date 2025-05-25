@@ -1,23 +1,11 @@
 {
   "OutputFoldersPerTargetSystem": {
     "Local Machine": [
-      "out\\build\\macOS - arm64",
-      "out\\build\\Windows",
+      "build\\macOS - arm64",
+      "build\\Windows",
       "out\\install\\Windows",
-      "out\\build\\Linux",
+      "build\\Linux",
       "out\\install\\Linux"
     ]
-  },
-  "ExpandedNodes": [
-    "",
-    "\\Additional",
-    "\\Core",
-    "\\out",
-    "\\out\\build",
-    "\\Source",
-    "\\Source\\Headers",
-    "\\Source\\Source"
-  ],
-  "SelectedNode": "\\Core\\Main.cpp",
-  "PreviewInSolutionExplorer": false
+  }
 }

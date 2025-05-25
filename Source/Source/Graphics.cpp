@@ -21,7 +21,7 @@ bool Graphics::Initialize()
 	CreateTriangleGameobject();
 
 	//Initialize ImGui
-	//InitializeImGui();
+	InitializeImGui();
 
 	return true;
 }
@@ -93,14 +93,14 @@ bool Graphics::Shutdown()
 bool Graphics::InitializeImGui()
 {
 
-	/*ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-	ImGui::StyleColorsDark();
-	ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
-	ImGui_ImplOpenGL3_Init("#version 330");*/
+	//ImGui::CreateContext();
+	//ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+	//ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+	//ImGui::StyleColorsDark();
+	//ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
+	//ImGui_ImplOpenGL3_Init("#version 330");
 
 
 	return true;

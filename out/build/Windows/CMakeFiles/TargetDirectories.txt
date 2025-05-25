@@ -1,3 +1,0 @@
-D:/Projects/Graphics/Oasis-Renderer/out/build/Windows/CMakeFiles/OpenGLRenderer.dir
-D:/Projects/Graphics/Oasis-Renderer/out/build/Windows/CMakeFiles/ALL_BUILD.dir
-D:/Projects/Graphics/Oasis-Renderer/out/build/Windows/CMakeFiles/ZERO_CHECK.dir
