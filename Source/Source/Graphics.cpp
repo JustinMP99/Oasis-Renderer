@@ -13,14 +13,13 @@ bool Graphics::Initialize()
 	//IMGUI_CHECKVERSION();
 
 	//Compile all shaders
-	CompileShaders();
-
-	glUseProgram(fallbackProgram);
-
-	//glLinkProgram(fallbackProgram);
+	CompileFallbackShaders();
 
 	//Create Triangle Game Object
-	CreateTriangleGameobject();
+	//CreateTriangleGameobject();
+
+	//Create Square
+	CreateCube();
 
 	//Initialize ImGui
 	InitializeImGui();
@@ -44,21 +43,16 @@ bool Graphics::Render()
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 
-	if (showTriangle)
+	for (int i = 0; i < sceneObjects.size(); i++)
 	{
 
-		for (int i = 0; i < sceneObjects.size(); i++)
-		{
-			
-			//sceneObjects[i]->material->Use();
+		sceneObjects[i]->material->Use();
 
-			glBindVertexArray(*sceneObjects[i]->VAO);
-			
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(*sceneObjects[i]->VAO);
 
-			glBindVertexArray(0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-		}
+		glBindVertexArray(0);
 
 	}
 
@@ -89,7 +83,8 @@ bool Graphics::Shutdown()
 	return true;
 }
 
-//UI Functions (ImGui)
+#pragma region ImGui Functions
+
 bool Graphics::InitializeImGui()
 {
 
@@ -210,159 +205,28 @@ bool Graphics::RenderAdditionalWindow()
 	return true;
 }
 
+
+#pragma endregion
+
 bool Graphics::InitializeShaders()
 {
 	return false;
 }
 
-bool Graphics::CompileShaders()
+bool Graphics::CompileFallbackShaders()
 {
-	//Create Vertex Shader
-	fallbackVertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-	//Attach Source to Shader
-	glShaderSource(fallbackVertexShader, 1, &vertexShaderSource, NULL);
+	fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
 
-	//Compile Vertex Shader
-	glCompileShader(fallbackVertexShader);
-
-	int success;
-	char infoLog[512];
-
-	glGetShaderiv(fallbackVertexShader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
+	if (!fallbackMat->GetCompletionStatus())
 	{
-
-		std::cout << "Vertex Shader Failed" << std::endl;
-		glGetShaderInfoLog(fallbackVertexShader, 512, NULL, infoLog);
-
+		std::cout << "Error Creating Fallback Material" << std::endl;
 	}
-
-	//Create Fragment Shader
-	fallbackFragShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-	glShaderSource(fallbackFragShader, 1, &fragmentShaderSource, NULL);
-
-	glCompileShader(fallbackFragShader);
-
-	glGetShaderiv(fallbackFragShader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-
-		std::cout << "Fragment Shader Failed" << std::endl;
-		glGetShaderInfoLog(fallbackFragShader, 512, NULL, infoLog);
-
-	}
-
-	fallbackProgram = glCreateProgram();
-
-	glAttachShader(fallbackProgram, fallbackVertexShader);
-	glAttachShader(fallbackProgram, fallbackFragShader);
-
-	glLinkProgram(fallbackProgram);
-	
 
 	return true;
 }
 
 //Additional Functions
-
-/// <summary>
-/// Creates a Triangle for rendering
-/// </summary>
-/// <returns>True if successful</returns>
-bool Graphics::CreateTriangle()
-{
-
-	//Generate VAO
-	glGenVertexArrays(1, &VAO);
-
-	//Generate Vertex Buffer
-	glGenBuffers(1, &VBO);
-
-	//Bind the buffer
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-	//Set buffer data 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	//Create Vertex Shader
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-	//Attach Source to Shader
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-
-	//Compile Vertex Shader
-	glCompileShader(vertexShader);
-
-	int success;
-	char infoLog[512];
-
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-
-		std::cout << "Vertex Shader Failed" << std::endl;
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		
-	}
-
-	//Create Fragment Shader
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-
-	glCompileShader(fragmentShader);
-
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-
-		std::cout << "Fragment Shader Failed" << std::endl;
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-
-	}
-
-	//Create Shader Program
-	triangleProgram = glCreateProgram();
-
-	//Attach Shaders to program
-	glAttachShader(triangleProgram, vertexShader);
-	glAttachShader(triangleProgram, fragmentShader);
-
-	//Link shaders to program
-	glLinkProgram(triangleProgram);
-
-	//Delete shaders (No longer used so they can be deleted)
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-
-	//Bind VAO
-	//glBindVertexArray(VAO);
-
-	//Bind VBO, specifying its a GL_ARRAY_BUFFER
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-	//Fill the buffer data with data from the vertices
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	//Configure Vertex Attribute Pointer so OpenGL knows how to read the VBO
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	//Use Shader program
-	//glUseProgram(triangleProgram);
-
-	//Bind
-
-
-
-	return true;
-}
 
 bool Graphics::CreateTriangleGameobject()
 {
@@ -382,7 +246,6 @@ bool Graphics::CreateTriangleGameobject()
 	{
 		0, 1, 2
 	};
-
 
 	newGameObject->vertices = new Vertex[3];
 	memcpy(newGameObject->vertices, tempArr, 3 * sizeof(Vertex));
@@ -414,18 +277,8 @@ bool Graphics::CreateTriangleGameobject()
 
 	glEnableVertexAttribArray(0);
 
-	//Create & Assign Material
-	fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
-
+	//Assign Material
 	newGameObject->material = fallbackMat;
-
-	//Create Program and assign shaders
-	newGameObject->shaderProgram = glCreateProgram();
-
-	glAttachShader(newGameObject->shaderProgram, fallbackVertexShader);
-	glAttachShader(newGameObject->shaderProgram, fallbackFragShader);
-
-	glLinkProgram(newGameObject->shaderProgram);
 
 	//Add object to list
 	sceneObjects.push_back(newGameObject);
@@ -435,6 +288,61 @@ bool Graphics::CreateTriangleGameobject()
 
 bool Graphics::CreateCube()
 {
+
+	std::cout << "Creating Square..." << std::endl;
+
+	//Create Vertex Array
+	Vertex tempVertArray[4] = {
+
+		 Vertex(-0.5f,  0.5f, 0.0f),   //Top Left
+		 Vertex(0.5f,  0.5f, 0.0f),    //Top Right
+		 Vertex(-0.5f, -0.5f, 0.0f),   //Bottom Left
+		 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
+
+	};
+
+	//Create Index Array
+	unsigned int tempIndexArray[6] =
+	{
+		0, 1, 2,
+		1, 3, 2
+	};
+
+	//Create New GameObject
+	GameObject* square = new GameObject();
+
+	//Fill GameObject Vertex & Index Array
+	square->vertices = new Vertex[4];
+	memcpy(square->vertices, tempVertArray, 4 * sizeof(Vertex));
+
+	square->indices = new unsigned int[6];
+	memcpy(square->indices, tempIndexArray, 6 * sizeof(unsigned int));
+
+	glGenVertexArrays(1, square->VAO);
+
+	glBindVertexArray(*square->VAO);
+
+	//Create GameObject VBO & EBO
+	glGenBuffers(1, square->VBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, *square->VBO);
+
+	glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), square->vertices, GL_STATIC_DRAW);
+
+	glGenBuffers(1, square->EBO);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *square->EBO);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), square->indices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
+
+	glEnableVertexAttribArray(0);
+
+	square->material = fallbackMat;
+
+	sceneObjects.push_back(square);
+
 	return true;
 }
 

@@ -93,9 +93,7 @@ public:
 	bool InitializeShaders();
 
 	//Additional Functions
-	bool CompileShaders();
-
-	bool CreateTriangle();
+	bool CompileFallbackShaders();
 
 	bool CreateTriangleGameobject();
 

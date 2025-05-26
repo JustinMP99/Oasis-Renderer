@@ -128,6 +128,11 @@ void Material::Use()
 	glUseProgram(program);
 }
 
+bool Material::GetCompletionStatus()
+{
+	return completed;
+}
+
 void Material::SetBool(const std::string& name, bool value) const
 {
 	glUniform1i(glGetUniformLocation(program, name.c_str()), (int)value);
