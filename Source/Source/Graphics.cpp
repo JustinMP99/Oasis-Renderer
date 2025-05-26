@@ -48,6 +48,8 @@ bool Graphics::Render()
 
 		sceneObjects[i]->material->Use();
 
+		//glBindTexture(GL_TEXTURE_2D, data);
+
 		glBindVertexArray(*sceneObjects[i]->VAO);
 
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -308,6 +310,16 @@ bool Graphics::CreateCube()
 		1, 3, 2
 	};
 
+	//Create UV Array
+	UV tempUVArray[8] = {
+
+		UV(0.0f, 1.0f), //Top Left
+		UV(1.0f, 1.0f), //Top Right
+		UV(0.0f, 0.0f), //Bottom Left
+		UV(1.0f, 0.0f)  //Bottom Right
+
+	};
+
 	//Create New GameObject
 	GameObject* square = new GameObject();
 
@@ -317,6 +329,9 @@ bool Graphics::CreateCube()
 
 	square->indices = new unsigned int[6];
 	memcpy(square->indices, tempIndexArray, 6 * sizeof(unsigned int));
+
+	square->uv = new UV[4];
+	memcpy(square->uv, tempUVArray, 8 * sizeof(GLfloat));
 
 	glGenVertexArrays(1, square->VAO);
 
@@ -335,20 +350,84 @@ bool Graphics::CreateCube()
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), square->indices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
+	//Set Position Attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
 
 	glEnableVertexAttribArray(0);
 
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(UV), (void*)(sizeof(Vertex)));
+
+	glEnableVertexAttribArray(1);
+
+	//Set UV Attribute
+
+	//Set Material
 	square->material = fallbackMat;
 
-	//int colorLocation = glGetUniformLocation(square->material->program, "col");
-	//square->material->Use();
-	//glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
+	int colorLocation = glGetUniformLocation(square->material->program, "col");
+	square->material->Use();
+	glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
+
+	//Generate Texture
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	
+	// set the texture wrapping/filtering options (on the currently bound texture object)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	
+	unsigned char* data = stbi_load(testTexturePath, &textureWidth, &textureHeight, &nrChannels, 0);
+	if (stbi_failure_reason())
+	{
+		std::cout << stbi_failure_reason() << std::endl;
+	}
+
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+	stbi_image_free(data);
 
 	sceneObjects.push_back(square);
 
 	return true;
 }
+
+
+const char Graphics::ReadImageFile(const char* filepath)
+{
+
+	const char* data;
+
+	std::string line;
+	std::string text;
+
+	std::ifstream in(testTexturePath);
+
+	while (std::getline(in, line))
+	{
+		text += line + "\n";
+	}
+
+	data = text.c_str();
+
+	if (data == nullptr)
+	{
+		std::cout << "Error Reading Image" << std::endl;
+	}
+
+	return *data;
+
+}
+
 
 #pragma region Getter
 

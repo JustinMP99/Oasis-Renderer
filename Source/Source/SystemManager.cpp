@@ -43,6 +43,10 @@ bool SystemManager::Initialize()
 	return true;
 }
 
+/// <summary>
+/// This is the where everything is processed (input, rendering, etc.)
+/// </summary>
+/// <returns>returns true when program ends</returns>
 bool SystemManager::ProgramLoop()
 {
 	std::cout << "Starting Program Loop..." << std::endl;

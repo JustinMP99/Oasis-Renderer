@@ -12,8 +12,7 @@
 #include <glfw3.h>
 
 #include "GameObject.h"
-
-//#pragma deprecated(CreateTriaangle())
+#include "stb_image.h"
 
 class Graphics
 {
@@ -35,35 +34,19 @@ private:
 
 	};
 
+	//Shader Paths & Materials
 	const char* fallbackVertexShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
 	const char* fallbackFragmentShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
 	Material* fallbackMat;
 
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
+	//Texture Paths
+	const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
+	//const char* testTexturePath = "goku.png";
+	int textureWidth;
+	int textureHeight;
+	int nrChannels;
+	//unsigned char* data = stbi_load(testTexturePath, &textureWidth, &textureWidth, &nrChannels, 0);
 
-	const char* fragmentShaderSource = 
-		"#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"FragColor = vec4(0.75f, 0.5f, 0.2f, 1.0f);\n"
-		"}\0";
-  
-	unsigned int vertexShader;
-	unsigned int fragmentShader;
-
-	unsigned int fallbackVertexShader;
-	unsigned int fallbackFragShader;
-	unsigned int fallbackProgram;
-
-	unsigned int VBO;
-	unsigned int VAO;
-	unsigned int triangleProgram;
 	
 public:
 
@@ -98,6 +81,8 @@ public:
 	bool CreateTriangleGameobject();
 
 	bool CreateCube();
+
+	const char ReadImageFile(const char* filepath);
 
 	//Getter
 

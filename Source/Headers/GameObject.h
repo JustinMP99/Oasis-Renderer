@@ -4,6 +4,7 @@
 //#include "../DataTypes/Vertex.h"
 #include "./Vertex.h"
 #include "Material.h"
+#include "UV.h"
 
 class GameObject
 {
@@ -15,21 +16,23 @@ private:
 public:
 
 
-	//Mesh Variables
+	//Mesh Data Storage
 	Vertex* vertices;
 	unsigned int* indices;
+	UV* uv;
+
+	//Buffer Variables
 	GLuint* VBO; //Holds ID to Vertex Buffer
 	GLuint* EBO; //Holds ID to Index Buffer
 	GLuint* VAO; //Holds ID to Vertex Array 
 
 
 	//Material Variables
-
 	Material* material;
 
-	unsigned int vertexShader;
-	unsigned int fragmentShader;
-	unsigned int shaderProgram;
+	//unsigned int vertexShader;
+	//unsigned int fragmentShader;
+	//unsigned int shaderProgram;
 
 	GameObject();
 	~GameObject();
