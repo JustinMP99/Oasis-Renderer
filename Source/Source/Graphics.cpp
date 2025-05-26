@@ -341,6 +341,10 @@ bool Graphics::CreateCube()
 
 	square->material = fallbackMat;
 
+	//int colorLocation = glGetUniformLocation(square->material->program, "col");
+	//square->material->Use();
+	//glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
+
 	sceneObjects.push_back(square);
 
 	return true;
