@@ -5,10 +5,12 @@ project(OpenGLRenderer VERSION 0.0.1 LANGUAGES C CXX)
 find_package(OpenGL REQUIRED)
 
 if(APPLE)
-	
-	find_package(glfw3 REQUIRED)
+find_package(glfw3 REQUIRED)
+
+elseif(WIN32)
 
 endif()
+
 
 add_executable(OpenGLRenderer 
 Core/Main.cpp
@@ -46,26 +48,43 @@ set(GLFW_LIBRARY "${CMAKE_SOURCE_DIR}/Additional/Library/glfw3.lib")
 set(STB_IMAGE_DIR "${PROJECT_SOURCE_DIR}/Additional/Includes/stb_image")
 set(IMAGE_DIR "${PROJECT_SOURCE_DIR}/Additional/Images")
 
-
 # Include GLFW headers
 target_include_directories(OpenGLRenderer PRIVATE
+	
 	${GLAD_INCLUDE_DIR} 
+	
 	${GLFW_INCLUDE_DIR} 
+	
 	#${IMGUI_INCLUDE_DIR} 
 	
 	${STB_IMAGE_DIR}
+	
 	${IMAGE_DIR}
 
 	${KHR_INCLUDE_DIR}
+	
 	${FRAG_DIR}
+
 )
 
-# Link GLFW and OpenGL
+if(APPLE)
+	
+	find_package(glfw3 REQUIRED)
+	target_link_libraries(OpenGLRenderer glfw OpenGL::GL)
+	target_link_libraries(OpenGLRenderer glfw)
+
+elseif(WIN32)
+
 target_link_libraries(OpenGLRenderer PRIVATE 
 
 ${GLFW_LIBRARY} 
 ${OPENGL_gl_LIBRARY} 
 
 )
+
+endif()
+
+# Link GLFW and OpenGL
+
 
 
