@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(OpenGLRenderer VERSION 0.0.1 LANGUAGES C CXX)
 
+
 find_package(OpenGL REQUIRED)
 
 add_executable(OpenGLRenderer 
 Core/Main.cpp
 Source/Source/SystemManager.cpp
-"Source/Source/GameObject.cpp"
+Source/Source/GameObject.cpp
 Source/Source/Graphics.cpp
 Source/Source/Material.cpp
 Source/Source/Vertex.cpp

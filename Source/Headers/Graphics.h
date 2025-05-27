@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "../SystemGlobals.h"
 
 #if GRAPHICS_API == OPENGL
@@ -13,6 +12,8 @@
 
 #include "GameObject.h"
 #include "stb_image.h"
+
+#include <iostream>
 
 class Graphics
 {
@@ -35,17 +36,44 @@ private:
 	};
 
 	//Shader Paths & Materials
-	const char* fallbackVertexShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
-	const char* fallbackFragmentShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
+#pragma region Shader Paths
+
+	//Desktop
+	//const char* fallbackVertexShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
+	//const char* fallbackFragmentShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
+
+	//Laptop
+	const char* fallbackVertexShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
+	const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
+
+	//Macbook
+
+
+#pragma endregion
+
+
 	Material* fallbackMat;
 
 	//Texture Paths
-	const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
+#pragma region Texture Paths
+
+	//Desktop
+	//const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
+
+	//Laptop
+	const char* testTexturePath = "G:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
+
+	//Macbook
+
+#pragma endregion
+
+	
 	//const char* testTexturePath = "goku.png";
+
+
 	int textureWidth;
 	int textureHeight;
 	int nrChannels;
-	//unsigned char* data = stbi_load(testTexturePath, &textureWidth, &textureWidth, &nrChannels, 0);
 
 	
 public:

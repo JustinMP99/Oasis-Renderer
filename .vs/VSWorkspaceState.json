@@ -12,12 +12,10 @@
     "",
     "\\Additional",
     "\\Additional\\Images",
-    "\\Additional\\Includes",
-    "\\Additional\\Includes\\stb_image",
+    "\\Core",
     "\\Source",
-    "\\Source\\Headers",
     "\\Source\\Source"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\Additional\\Images\\container.jpg",
   "PreviewInSolutionExplorer": false
 }

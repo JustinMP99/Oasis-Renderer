@@ -12,6 +12,8 @@ bool Graphics::Initialize()
 	//Setup Imgui
 	//IMGUI_CHECKVERSION();
 
+	
+
 	//Compile all shaders
 	CompileFallbackShaders();
 
