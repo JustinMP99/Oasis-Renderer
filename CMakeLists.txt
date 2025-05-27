@@ -4,6 +4,12 @@ project(OpenGLRenderer VERSION 0.0.1 LANGUAGES C CXX)
 
 find_package(OpenGL REQUIRED)
 
+if(APPLE)
+	
+	find_package(glfw3 REQUIRED)
+
+endif()
+
 add_executable(OpenGLRenderer 
 Core/Main.cpp
 Source/Source/SystemManager.cpp
@@ -23,7 +29,11 @@ Source/Source/glad.c
 #Additional/Includes/imgui/imgui_tables.cpp
 #Additional/Includes/imgui/imgui_widgets.cpp
 
- "Additional/Includes/stb_image/stb_image.cpp" "Source/Headers/UV.h" "Source/Source/UV.cpp")
+Additional/Includes/stb_image/stb_image.cpp
+Source/Headers/UV.h
+Source/Source/UV.cpp
+
+)
 
 # Set GLFW include and lib paths
 set(GLAD_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/glad")

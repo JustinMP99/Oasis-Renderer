@@ -17,7 +17,6 @@
             "displayName": "windows - x86_amd64",
             "description": "Using compilers for Visual Studio 17 2022 (x86_x64 architecture)",
             "generator": "Visual Studio 17 2022",
-            //"generator": "MinGW Makefiles",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
