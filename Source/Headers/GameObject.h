@@ -17,9 +17,10 @@ public:
 
 
 	//Mesh Data Storage
-	Vertex* vertices;
+	GLfloat* vertices;
 	unsigned int* indices;
-	UV* uv;
+	//UV* uv;
+	GLfloat* uv;
 
 	//Buffer Variables
 	GLuint* VBO; //Holds ID to Vertex Buffer

@@ -36,7 +36,7 @@ bool Graphics::Render()
 	//Clear to specific Color
 	if (showBackground)
 	{
-		glClearColor(0.50f, 0.5f, 0.0f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 	else
 	{
@@ -47,8 +47,6 @@ bool Graphics::Render()
 	{
 
 		sceneObjects[i]->material->Use();
-
-		//glBindTexture(GL_TEXTURE_2D, data);
 
 		glBindVertexArray(*sceneObjects[i]->VAO);
 
@@ -233,57 +231,57 @@ bool Graphics::CompileFallbackShaders()
 bool Graphics::CreateTriangleGameobject()
 {
 
-	GameObject* newGameObject = new GameObject();
+	//GameObject* newGameObject = new GameObject();
 
-	//Set Vertex & Index array
-	Vertex tempArr[3] = {
+	////Set Vertex & Index array
+	//Vertex tempArr[3] = {
 
-		 Vertex(-0.5f, -0.5f, 0.0f),
-		 Vertex( 0.5f, -0.5f, 0.0f),
-		 Vertex( 0.0f,  0.5f, 0.0f)
+	//	 Vertex(-0.5f, -0.5f, 0.0f),
+	//	 Vertex( 0.5f, -0.5f, 0.0f),
+	//	 Vertex( 0.0f,  0.5f, 0.0f)
 
-	};
-	
-	unsigned int tempIndex[3] =
-	{
-		0, 1, 2
-	};
+	//};
+	//
+	//unsigned int tempIndex[3] =
+	//{
+	//	0, 1, 2
+	//};
 
-	newGameObject->vertices = new Vertex[3];
-	memcpy(newGameObject->vertices, tempArr, 3 * sizeof(Vertex));
+	//newGameObject->vertices = new Vertex[3];
+	//memcpy(newGameObject->vertices, tempArr, 3 * sizeof(Vertex));
 
-	newGameObject->indices = new unsigned int[3];
-	memcpy(newGameObject->indices, tempIndex, 3 * sizeof(unsigned int));
+	//newGameObject->indices = new unsigned int[3];
+	//memcpy(newGameObject->indices, tempIndex, 3 * sizeof(unsigned int));
 
 
-	glGenVertexArrays(1, newGameObject->VAO);
-	
-	glBindVertexArray(*newGameObject->VAO);
+	//glGenVertexArrays(1, newGameObject->VAO);
+	//
+	//glBindVertexArray(*newGameObject->VAO);
 
-	//Generate, Bind & Fill VBO
-	glGenBuffers(1, newGameObject->VBO);
+	////Generate, Bind & Fill VBO
+	//glGenBuffers(1, newGameObject->VBO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, *newGameObject->VBO);
+	//glBindBuffer(GL_ARRAY_BUFFER, *newGameObject->VBO);
 
-	glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(Vertex), newGameObject->vertices, GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(Vertex), newGameObject->vertices, GL_STATIC_DRAW);
 
-	//Generate, Bind & Fill EBO
-	glGenBuffers(1, newGameObject->EBO);
+	////Generate, Bind & Fill EBO
+	//glGenBuffers(1, newGameObject->EBO);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *newGameObject->EBO);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *newGameObject->EBO);
 
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * sizeof(unsigned int), newGameObject->indices, GL_STATIC_DRAW);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * sizeof(unsigned int), newGameObject->indices, GL_STATIC_DRAW);
 
-	//Set Vertex Attribute Pointers
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
+	////Set Vertex Attribute Pointers
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
 
-	glEnableVertexAttribArray(0);
+	//glEnableVertexAttribArray(0);
 
-	//Assign Material
-	newGameObject->material = fallbackMat;
+	////Assign Material
+	//newGameObject->material = fallbackMat;
 
-	//Add object to list
-	sceneObjects.push_back(newGameObject);
+	////Add object to list
+	//sceneObjects.push_back(newGameObject);
 
 	return true;
 }
@@ -294,12 +292,22 @@ bool Graphics::CreateCube()
 	std::cout << "Creating Square..." << std::endl;
 
 	//Create Vertex Array
-	Vertex tempVertArray[4] = {
+	//Vertex tempVertArray[4] = {
 
-		 Vertex(-0.5f,  0.5f, 0.0f),   //Top Left
-		 Vertex(0.5f,  0.5f, 0.0f),    //Top Right
-		 Vertex(-0.5f, -0.5f, 0.0f),   //Bottom Left
-		 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
+	//	 Vertex(-0.5f,  0.5f, 0.0f),   //Top Left
+	//	 Vertex(0.5f,  0.5f, 0.0f),    //Top Right
+	//	 Vertex(-0.5f, -0.5f, 0.0f),   //Bottom Left
+	//	 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
+
+	//};
+
+	GLfloat tempVertArray[] = {
+
+		//Positions								//Texture Coordinates
+		-0.5f,  0.5f, 0.0f,						0.1f, 1.0f,					//Top Left        
+		0.5f,  0.5f, 0.0f,						1.0f, 1.0f,					//Top Right
+		-0.5f, -0.5f, 0.0f,						0.0f, 0.0f,					//Bottom Left
+		0.5f, -0.5f, 0.0f,						1.0f, 0.0f					//Bottom Right
 
 	};
 
@@ -311,12 +319,21 @@ bool Graphics::CreateCube()
 	};
 
 	//Create UV Array
-	UV tempUVArray[8] = {
+	//UV tempUVArray[4] = {
 
-		UV(0.0f, 1.0f), //Top Left
-		UV(1.0f, 1.0f), //Top Right
-		UV(0.0f, 0.0f), //Bottom Left
-		UV(1.0f, 0.0f)  //Bottom Right
+	//	UV(0.0f, 1.0f), //Top Left
+	//	UV(1.0f, 1.0f), //Top Right
+	//	UV(0.0f, 0.0f), //Bottom Left
+	//	UV(1.0f, 0.0f)  //Bottom Right
+
+	//};
+
+	GLfloat tempUVArray[8] = {
+
+	   0.0f, 1.0f, //Top Left
+	   1.0f, 1.0f, //Top Right
+	   0.0f, 0.0f, //Bottom Left
+	   1.0f, 0.0f  //Bottom Right
 
 	};
 
@@ -324,13 +341,13 @@ bool Graphics::CreateCube()
 	GameObject* square = new GameObject();
 
 	//Fill GameObject Vertex & Index Array
-	square->vertices = new Vertex[4];
-	memcpy(square->vertices, tempVertArray, 4 * sizeof(Vertex));
+	square->vertices = new GLfloat[20];
+	memcpy(square->vertices, tempVertArray, 4 * sizeof(GLfloat));
 
 	square->indices = new unsigned int[6];
 	memcpy(square->indices, tempIndexArray, 6 * sizeof(unsigned int));
 
-	square->uv = new UV[4];
+	square->uv = new GLfloat[8];
 	memcpy(square->uv, tempUVArray, 8 * sizeof(GLfloat));
 
 	glGenVertexArrays(1, square->VAO);
@@ -342,24 +359,23 @@ bool Graphics::CreateCube()
 
 	glBindBuffer(GL_ARRAY_BUFFER, *square->VBO);
 
-	glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), square->vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(tempVertArray), tempVertArray, GL_STATIC_DRAW);
 
 	glGenBuffers(1, square->EBO);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *square->EBO);
 
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), square->indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(tempIndexArray), tempIndexArray, GL_STATIC_DRAW);
 
 	//Set Position Attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
 
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(UV), (void*)(sizeof(Vertex)));
+	//Set UV Attribute
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 
 	glEnableVertexAttribArray(1);
-
-	//Set UV Attribute
 
 	//Set Material
 	square->material = fallbackMat;
@@ -368,14 +384,15 @@ bool Graphics::CreateCube()
 	square->material->Use();
 	glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
 
+
 	//Generate Texture
 	unsigned int texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
 	
-	// set the texture wrapping/filtering options (on the currently bound texture object)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	// set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	
@@ -395,6 +412,11 @@ bool Graphics::CreateCube()
 		std::cout << "Failed to load texture" << std::endl;
 	}
 	stbi_image_free(data);
+
+
+	//TEST
+	//glActiveTexture(GL_TEXTURE0); // activate the texture unit first before binding texture
+	//glBindTexture(GL_TEXTURE_2D, texture);
 
 	sceneObjects.push_back(square);
 

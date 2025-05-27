@@ -9,7 +9,15 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Additional",
+    "\\Additional\\Images",
+    "\\Additional\\Includes",
+    "\\Additional\\Includes\\stb_image",
+    "\\Source",
+    "\\Source\\Headers",
+    "\\Source\\Source"
   ],
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
