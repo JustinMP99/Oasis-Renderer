@@ -17,12 +17,26 @@ private:
 
 public:
 
+	char materialName;
+
 	unsigned int program;
+	char mainTexture;
 
 	//Constructor for the Material object
+	Material();
 	Material(const char* vertexPath, const char* fragmentPath);
+	Material(const char* vertexPath, const char* fragmentPath, const char* mainTexturePath);
 
-	//Sets the shader to be active5
+	//Setup Functions
+	bool SetMaterialName(const char* name);
+
+	bool SetShaders(const char* vertexPath, const char* fragmentPath);
+
+	bool SetMainTexture(const char* mainTexturePath);
+
+	/// <summary>
+	/// Sets the Materials shader program to be active
+	/// </summary>
 	void Use();
 
 	bool GetCompletionStatus();

@@ -15,14 +15,15 @@
 
 #include <iostream>
 
+#include <string>
+#include <filesystem>
+#include <windows.h>
+
 class Graphics
 {
 private:
 
 	GLFWwindow* mainWindow;
-
-	bool showBackground = true;
-	bool showTriangle = true;
 
 	std::vector<GameObject*> sceneObjects;
 
@@ -43,12 +44,12 @@ private:
 	//const char* fallbackFragmentShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
 
 	//Laptop
-	//const char* fallbackVertexShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
-	//const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
+	const char* fallbackVertexShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
+	const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
 
 	//Macbook
-	const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
-	const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
+	//const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
+	//const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
 
 
 #pragma endregion
@@ -63,10 +64,10 @@ private:
 	//const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
 
 	//Laptop
-	//const char* testTexturePath = "G:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
+	const char* testTexturePath = "G:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
 
 	//Macbook
-	const char* testTexturePath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Additional/Images/container.jpg";
+	//const char* testTexturePath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Additional/Images/container.jpg";
 
 
 #pragma endregion
@@ -113,6 +114,8 @@ public:
 	bool CreateTriangleGameobject();
 
 	bool CreateCube();
+
+	std::string getexepath();
 
 	const char ReadImageFile(const char* filepath);
 

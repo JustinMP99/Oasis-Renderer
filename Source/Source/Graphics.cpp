@@ -3,6 +3,7 @@
 //Core Functions
 bool Graphics::Initialize()
 {
+
 	//Load OpenGL
 	gladLoadGL();
 
@@ -34,14 +35,8 @@ bool Graphics::Render()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	//Clear to specific Color
-	if (showBackground)
-	{
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	}
-	else
-	{
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	}
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	for (int i = 0; i < sceneObjects.size(); i++)
 	{
@@ -288,8 +283,8 @@ bool Graphics::CreateTriangleGameobject()
 
 bool Graphics::CreateCube()
 {
-
-	std::cout << "Creating Square..." << std::endl;
+	//std::cout << getexepath() << std::endl;
+	//std::cout << "Creating Square..." << std::endl;
 
 	//Create Vertex Array
 	//Vertex tempVertArray[4] = {
@@ -395,7 +390,7 @@ bool Graphics::CreateCube()
 	// set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	
+
 	unsigned char* data = stbi_load(testTexturePath, &textureWidth, &textureHeight, &nrChannels, 0);
 	if (stbi_failure_reason())
 	{
@@ -421,6 +416,12 @@ bool Graphics::CreateCube()
 	sceneObjects.push_back(square);
 
 	return true;
+}
+
+std::string Graphics::getexepath()
+{
+	char result[MAX_PATH];
+	return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
 }
 
 

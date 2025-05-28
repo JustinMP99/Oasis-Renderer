@@ -11,11 +11,10 @@
   "ExpandedNodes": [
     "",
     "\\Additional",
-    "\\Additional\\Images",
-    "\\Core",
     "\\Source",
+    "\\Source\\Headers",
     "\\Source\\Source"
   ],
-  "SelectedNode": "\\Additional\\Images\\container.jpg",
+  "SelectedNode": "\\Source\\Source\\Graphics.cpp",
   "PreviewInSolutionExplorer": false
 }

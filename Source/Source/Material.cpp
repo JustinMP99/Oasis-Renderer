@@ -28,14 +28,36 @@ std::string GetFileContents(const char* filename)
 
 }
 
+
+#pragma region Constructors
+
+Material::Material() {}
+
 Material::Material(const char* vertexPath, const char* fragmentPath)
 {
+	SetShaders(vertexPath, fragmentPath);
+}
 
+Material::Material(const char* vertexPath, const char* fragmentPath, const char* mainTexturePath)
+{
 
-	//Get the contents of the files passed in
+	SetShaders(vertexPath, fragmentPath);
 
+	SetMainTexture(mainTexturePath);
 
-	//Read the files
+}
+
+#pragma endregion
+
+bool Material::SetMaterialName(const char* name)
+{
+	materialName = *name;
+
+	return true;
+}
+
+bool Material::SetShaders(const char* vertexPath, const char* fragmentPath)
+{
 
 	//Retrieve the Vertex/Fragment source from the given filepaths
 	std::string vertexCode;
@@ -121,6 +143,22 @@ Material::Material(const char* vertexPath, const char* fragmentPath)
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
 
+
+	return true;
+}
+
+bool Material::SetMainTexture(const char* mainTexturePath)
+{
+
+	mainTexture = *mainTexturePath;
+
+	if (mainTexture == NULL)
+	{
+		std::cout << ">>> Error setting material main texture <<<" << std::endl;
+	}
+
+	return true;
+
 }
 
 void Material::Use()
@@ -132,6 +170,8 @@ bool Material::GetCompletionStatus()
 {
 	return completed;
 }
+
+
 
 void Material::SetBool(const std::string& name, bool value) const
 {
