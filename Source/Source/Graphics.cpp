@@ -13,14 +13,17 @@ bool Graphics::Initialize()
 	//Setup Imgui
 	//IMGUI_CHECKVERSION();
 	
-	//Compile all shaders
-	CompileFallbackShaders();
+	//Initialize Shaders
+	InitializeShaders();
 
-	//Create Triangle Game Object
-	//CreateTriangleGameobject();
+	//Initialize Materials
+	InitializeMaterial();
 
-	//Create Square
-	CreateCube();
+	//Initialize Texture
+	InitializeTextures();
+
+	//Create Quad
+	CreateQuad();
 
 	//Initialize ImGui
 	InitializeImGui();
@@ -203,12 +206,16 @@ bool Graphics::RenderAdditionalWindow()
 
 #pragma endregion
 
-bool Graphics::InitializeShaders()
+bool Graphics::InitializeMaterial()
 {
-	return false;
+
+	//Fallback Material
+	fallbackMat = new Material(*fallbackVertexShader, *fallbackFragmentShader);
+
+	return true;
 }
 
-bool Graphics::CompileFallbackShaders()
+Material Graphics::CompileMaterial()
 {
 
 	fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
@@ -218,7 +225,115 @@ bool Graphics::CompileFallbackShaders()
 		std::cout << "Error Creating Fallback Material" << std::endl;
 	}
 
+	return *fallbackMat;
+}
+
+bool Graphics::InitializeShaders()
+{
+
+	fallbackVertexShader = CompileShaders(fallbackVertexShaderPath);
+	fallbackFragmentShader = CompileShaders(fallbackFragmentShaderPath);
+
+	return false;
+}
+
+unsigned int* Graphics::CompileShaders(const char* filepath)
+{
+
+	std::string shaderCode;
+	std::ifstream shaderFile;
+
+
+	shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+	try
+	{
+		shaderFile.open(filepath);
+
+		std::stringstream vShaderStream;
+		std::stringstream fShaderStream;
+
+		vShaderStream << shaderFile.rdbuf();
+
+		shaderFile.close();
+
+		shaderCode = vShaderStream.str();
+
+	}
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "Error Reading File from File Path\n" << std::endl;
+	}
+
+	const char* vShaderCode = shaderCode.c_str();
+
+	//2. Create Shaders
+	unsigned int shader;
+	int success;
+	char infoLog[512];
+
+	shader = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(shader, 1, &vShaderCode, NULL);
+	glCompileShader(shader);
+
+	//Print Compile Errors if Any
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	if (!success)
+	{
+		glGetShaderInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
+			infoLog << std::endl;
+	};
+
+	return &shader;
+}
+
+bool Graphics::InitializeTextures()
+{
+
+	containerTexture = CreateTexture(testTexturePath);
+
 	return true;
+}
+
+unsigned int* Graphics::CreateTexture(const char* filepath)
+{
+
+	unsigned int temp;
+
+	int textureWidth;
+	int textureHeight;
+	int nrChannels;
+
+	//Generate Texture
+	glGenTextures(1, &temp);
+	glBindTexture(GL_TEXTURE_2D, temp);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	// set texture filtering parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	unsigned char* data = stbi_load(filepath, &textureWidth, &textureHeight, &nrChannels, 0);
+	if (stbi_failure_reason())
+	{
+		std::cout << stbi_failure_reason() << std::endl;
+	}
+
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+	stbi_image_free(data);
+
+
+	return &temp;
 }
 
 //Additional Functions
@@ -281,7 +396,7 @@ bool Graphics::CreateTriangleGameobject()
 	return true;
 }
 
-bool Graphics::CreateCube()
+bool Graphics::CreateQuad()
 {
 	//std::cout << getexepath() << std::endl;
 	//std::cout << "Creating Square..." << std::endl;
@@ -295,7 +410,7 @@ bool Graphics::CreateCube()
 	//	 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
 
 	//};
-
+	
 	GLfloat tempVertArray[] = {
 
 		//Positions								//Texture Coordinates
@@ -373,40 +488,12 @@ bool Graphics::CreateCube()
 	glEnableVertexAttribArray(1);
 
 	//Set Material
+	fallbackMat->mainTexture = *containerTexture;
 	square->material = fallbackMat;
 
 	int colorLocation = glGetUniformLocation(square->material->program, "col");
 	square->material->Use();
 	glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
-
-
-	//Generate Texture
-	unsigned int texture;
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	unsigned char* data = stbi_load(testTexturePath, &textureWidth, &textureHeight, &nrChannels, 0);
-	if (stbi_failure_reason())
-	{
-		std::cout << stbi_failure_reason() << std::endl;
-	}
-
-	if (data)
-	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
-	}
-	else
-	{
-		std::cout << "Failed to load texture" << std::endl;
-	}
-	stbi_image_free(data);
 
 
 	//TEST
@@ -423,7 +510,6 @@ std::string Graphics::getexepath()
 	char result[MAX_PATH];
 	return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
 }
-
 
 const char Graphics::ReadImageFile(const char* filepath)
 {
@@ -450,7 +536,6 @@ const char Graphics::ReadImageFile(const char* filepath)
 	return *data;
 
 }
-
 
 #pragma region Getter
 

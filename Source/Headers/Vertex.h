@@ -13,6 +13,7 @@ private:
 
 public:
 
+	
 	GLfloat X;
 	GLfloat Y;
 	GLfloat Z;

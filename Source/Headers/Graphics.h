@@ -9,15 +9,12 @@
 //#include <imgui_impl_opengl3.h>
 //#include <imgui_impl_glfw.h>
 #include <glfw3.h>
-
-#include "GameObject.h"
-#include "stb_image.h"
-
 #include <iostream>
-
 #include <string>
 #include <filesystem>
 #include <windows.h>
+#include <vector>
+#include "GameObject.h"
 
 class Graphics
 {
@@ -27,17 +24,13 @@ private:
 
 	std::vector<GameObject*> sceneObjects;
 
-	//Triangle Variables
-	float vertices[9] = {
-	
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.0f, 0.5f, 0.0f
+	//Shaders 
 
-	};
+#pragma region Data Paths
 
-	//Shader Paths & Materials
-#pragma region Shader Paths
+#if PLATFORM == WIN32
+
+	//Shader
 
 	//Desktop
 	//const char* fallbackVertexShaderPath = "D:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Path to Fallback Vertex Shader
@@ -47,40 +40,38 @@ private:
 	const char* fallbackVertexShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
 	const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
 
-	//Macbook
-	//const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
-	//const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
-
-
-#pragma endregion
-
-
-	Material* fallbackMat;
-
-	//Texture Paths
-#pragma region Texture Paths
-
+	//Textures
 	//Desktop
 	//const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
 
 	//Laptop
 	const char* testTexturePath = "G:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
 
-	//Macbook
-	//const char* testTexturePath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Additional/Images/container.jpg";
+#elif PLATFORM == MACOS
 
+	//Shader 
+	const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert";
+	const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
+
+	//Texture
+	const char* testTexturePath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Additional/Images/container.jpg";
+
+
+#endif
 
 #pragma endregion
 
-	
-	//const char* testTexturePath = "goku.png";
 
+	//Textures
+	unsigned int* containerTexture;
 
-	int textureWidth;
-	int textureHeight;
-	int nrChannels;
+	//Shaders
+	unsigned int* fallbackVertexShader;
+	unsigned int* fallbackFragmentShader;
 
-	
+	//Materials
+	Material* fallbackMat;
+
 public:
 
 	//Core Functions
@@ -103,17 +94,47 @@ public:
 
 	bool InitializeDockspace();
 
-
 	//Helper Functions
+#pragma region Material Functions
+
+	bool InitializeMaterial();
+
+	//Additional Functions
+	Material CompileMaterial();
+
+#pragma endregion
+
+#pragma region Shader Functions
 
 	bool InitializeShaders();
 
-	//Additional Functions
-	bool CompileFallbackShaders();
+	unsigned int* CompileShaders(const char* filepath);
+
+#pragma endregion
+
+#pragma region Texture Functions
+
+	bool InitializeTextures();
+
+	unsigned int* CreateTexture(const char* filepath);
+
+#pragma endregion
+
 
 	bool CreateTriangleGameobject();
 
-	bool CreateCube();
+	/// <summary>
+	/// Creates a 2D Quad
+	/// </summary>
+	/// <returns>Returns True if Successful</returns>
+	bool CreateQuad();
+
+	/// <summary>
+	/// Creates an GameObject
+	/// </summary>
+	/// <param name="filepath">Path to the Object</param>
+	/// <returns></returns>
+	bool CreateObject(const char* filepath);
 
 	std::string getexepath();
 

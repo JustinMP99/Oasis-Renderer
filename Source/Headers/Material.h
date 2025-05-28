@@ -6,6 +6,9 @@
 #include <sstream>
 #include <iostream>
 
+#include "stb_image.h"
+
+
 std::string GetFileContents(const char* filename);
 
 class Material
@@ -20,22 +23,23 @@ public:
 	char materialName;
 
 	unsigned int program;
-	char mainTexture;
+	unsigned int mainTexture;
 
 	//Constructor for the Material object
 	Material();
 	Material(const char* vertexPath, const char* fragmentPath);
 	Material(const char* vertexPath, const char* fragmentPath, const char* mainTexturePath);
+	Material(unsigned int vertexShader, unsigned int fragmentShader);
 
 	//Setup Functions
 	bool SetMaterialName(const char* name);
 
 	bool SetShaders(const char* vertexPath, const char* fragmentPath);
 
-	bool SetMainTexture(const char* mainTexturePath);
+	bool SetMainTexture(const char* texturePath);
 
 	/// <summary>
-	/// Sets the Materials shader program to be active
+	/// Sets the program, textures, etc. to be used during rendering
 	/// </summary>
 	void Use();
 
