@@ -18,7 +18,7 @@ const char Graphics::ReadImageFile(const char* filepath)
 	std::string line;
 	std::string text;
 
-	std::ifstream in(testTexturePath);
+	std::ifstream in(testTexturePath); 
 
 	while (std::getline(in, line))
 	{

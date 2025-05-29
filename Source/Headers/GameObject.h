@@ -1,10 +1,14 @@
 
 #pragma once
 #include <glad.h>
-//#include "../DataTypes/Vertex.h"
-#include "./Vertex.h"
+#include "Vertex.h"
 #include "Material.h"
 #include "UV.h"
+
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
+#include "gtc/type_ptr.hpp"
+
 
 class GameObject
 {
