@@ -507,8 +507,9 @@ bool Graphics::CreateQuad()
 
 std::string Graphics::getexepath()
 {
-	char result[MAX_PATH];
-	return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+	// char result[MAX_PATH];
+	// return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+	return nullptr;
 }
 
 const char Graphics::ReadImageFile(const char* filepath)

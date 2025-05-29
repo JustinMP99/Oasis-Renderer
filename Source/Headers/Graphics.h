@@ -5,6 +5,12 @@
 #include <glad.h>
 #endif
 
+#if PLATFORM == WINDOWS
+
+#include <windows.h>
+
+#endif
+
 //#include <imgui.h>
 //#include <imgui_impl_opengl3.h>
 //#include <imgui_impl_glfw.h>
@@ -12,7 +18,7 @@
 #include <iostream>
 #include <string>
 #include <filesystem>
-#include <windows.h>
+
 #include <vector>
 #include "GameObject.h"
 
