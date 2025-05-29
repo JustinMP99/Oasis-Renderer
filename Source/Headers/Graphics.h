@@ -67,7 +67,6 @@ private:
 
 #pragma endregion
 
-
 	//Textures
 	unsigned int* containerTexture;
 
@@ -80,7 +79,22 @@ private:
 
 public:
 
+
+#pragma region Constructors
+
+	Graphics();
+
+#pragma endregion
+
+#pragma region Destructors
+
+	~Graphics();
+
+#pragma endregion
+
+
 	//Core Functions
+#pragma region Core Functions
 
 	bool Initialize();
 
@@ -88,7 +102,9 @@ public:
 
 	bool Shutdown();
 
-	//UI Functions (ImGui)
+#pragma endregion
+
+#pragma region UI Functions (ImGui)
 
 	bool InitializeImGui();
 
@@ -99,6 +115,8 @@ public:
 	bool RenderAdditionalWindow();
 
 	bool InitializeDockspace();
+
+#pragma endregion
 
 	//Helper Functions
 #pragma region Material Functions
@@ -126,6 +144,8 @@ public:
 
 #pragma endregion
 
+#pragma region Object Creation Functions
+
 
 	bool CreateTriangleGameobject();
 
@@ -142,15 +162,22 @@ public:
 	/// <returns></returns>
 	bool CreateObject(const char* filepath);
 
+#pragma endregion
+
+#pragma region Getter Functions
+
 	std::string getexepath();
 
-	const char ReadImageFile(const char* filepath);
+#pragma endregion
 
-	//Getter
+#pragma region Setter Functions
 
 	//Setter
 	void SetMainWindow(GLFWwindow* window);
 
-	Graphics() = default;
+
+#pragma endregion
+
+	const char ReadImageFile(const char* filepath);
 
 };

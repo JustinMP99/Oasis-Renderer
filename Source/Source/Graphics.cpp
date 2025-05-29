@@ -1,6 +1,61 @@
 #include "../Headers/Graphics.h"
 
-//Core Functions
+//Additional Functions
+
+
+std::string Graphics::getexepath()
+{
+	// char result[MAX_PATH];
+	// return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+	return nullptr;
+}
+
+const char Graphics::ReadImageFile(const char* filepath)
+{
+
+	const char* data;
+
+	std::string line;
+	std::string text;
+
+	std::ifstream in(testTexturePath);
+
+	while (std::getline(in, line))
+	{
+		text += line + "\n";
+	}
+
+	data = text.c_str();
+
+	if (data == nullptr)
+	{
+		std::cout << "Error Reading Image" << std::endl;
+	}
+
+	return *data;
+
+}
+
+#pragma region Constructors
+
+Graphics::Graphics()
+{
+
+}
+
+#pragma endregion
+
+#pragma region Destructors
+
+Graphics::~Graphics()
+{
+
+}
+
+#pragma endregion
+
+#pragma region Core Functions
+
 bool Graphics::Initialize()
 {
 
@@ -12,7 +67,7 @@ bool Graphics::Initialize()
 
 	//Setup Imgui
 	//IMGUI_CHECKVERSION();
-	
+
 	//Initialize Shaders
 	InitializeShaders();
 
@@ -38,8 +93,7 @@ bool Graphics::Render()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	//Clear to specific Color
-
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.5f, 0.70f, 1.0f);
 
 	for (int i = 0; i < sceneObjects.size(); i++)
 	{
@@ -74,14 +128,17 @@ bool Graphics::Shutdown()
 	//Destroy all GameObjects
 	for (int i = 0; i < sceneObjects.size(); i++)
 	{
-		
+
 		delete sceneObjects[i];
 	}
 
 	return true;
 }
 
-#pragma region ImGui Functions
+
+#pragma endregion
+
+#pragma region UI Functions (ImGui)
 
 bool Graphics::InitializeImGui()
 {
@@ -203,8 +260,9 @@ bool Graphics::RenderAdditionalWindow()
 	return true;
 }
 
-
 #pragma endregion
+
+#pragma region Material Functions
 
 bool Graphics::InitializeMaterial()
 {
@@ -218,15 +276,20 @@ bool Graphics::InitializeMaterial()
 Material Graphics::CompileMaterial()
 {
 
-	fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
+	/*fallbackMat = new Material(fallbackVertexShaderPath, fallbackFragmentShaderPath);
 
 	if (!fallbackMat->GetCompletionStatus())
 	{
 		std::cout << "Error Creating Fallback Material" << std::endl;
 	}
 
+	return *fallbackMat;*/
 	return *fallbackMat;
 }
+
+#pragma endregion
+
+#pragma region Shader Functions
 
 bool Graphics::InitializeShaders()
 {
@@ -243,21 +306,19 @@ unsigned int* Graphics::CompileShaders(const char* filepath)
 	std::string shaderCode;
 	std::ifstream shaderFile;
 
-
 	shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
 	try
 	{
 		shaderFile.open(filepath);
 
-		std::stringstream vShaderStream;
-		std::stringstream fShaderStream;
+		std::stringstream shaderStream;
 
-		vShaderStream << shaderFile.rdbuf();
+		shaderStream << shaderFile.rdbuf();
 
 		shaderFile.close();
 
-		shaderCode = vShaderStream.str();
+		shaderCode = shaderStream.str();
 
 	}
 	catch (std::ifstream::failure e)
@@ -268,25 +329,30 @@ unsigned int* Graphics::CompileShaders(const char* filepath)
 	const char* vShaderCode = shaderCode.c_str();
 
 	//2. Create Shaders
-	unsigned int shader;
+	unsigned int* shader = new unsigned int;
 	int success;
 	char infoLog[512];
 
-	shader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(shader, 1, &vShaderCode, NULL);
-	glCompileShader(shader);
+	*shader = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(*shader, 1, &vShaderCode, NULL);
+	glCompileShader(*shader);
 
 	//Print Compile Errors if Any
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	glGetShaderiv(*shader, GL_COMPILE_STATUS, &success);
 	if (!success)
 	{
-		glGetShaderInfoLog(shader, 512, NULL, infoLog);
+		glGetShaderInfoLog(*shader, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
 			infoLog << std::endl;
 	};
 
-	return &shader;
+	return shader;
 }
+
+
+#pragma endregion
+
+#pragma region Texture Functions
 
 bool Graphics::InitializeTextures()
 {
@@ -299,15 +365,15 @@ bool Graphics::InitializeTextures()
 unsigned int* Graphics::CreateTexture(const char* filepath)
 {
 
-	unsigned int temp;
+	unsigned int* textureID = new unsigned int;
 
 	int textureWidth;
 	int textureHeight;
 	int nrChannels;
 
 	//Generate Texture
-	glGenTextures(1, &temp);
-	glBindTexture(GL_TEXTURE_2D, temp);
+	glGenTextures(1, textureID);
+	glBindTexture(GL_TEXTURE_2D, *textureID);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -333,10 +399,12 @@ unsigned int* Graphics::CreateTexture(const char* filepath)
 	stbi_image_free(data);
 
 
-	return &temp;
+	return textureID;
 }
 
-//Additional Functions
+#pragma endregion
+
+#pragma region Object Creation Functions
 
 bool Graphics::CreateTriangleGameobject()
 {
@@ -410,7 +478,7 @@ bool Graphics::CreateQuad()
 	//	 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
 
 	//};
-	
+
 	GLfloat tempVertArray[] = {
 
 		//Positions								//Texture Coordinates
@@ -505,44 +573,13 @@ bool Graphics::CreateQuad()
 	return true;
 }
 
-std::string Graphics::getexepath()
-{
-	// char result[MAX_PATH];
-	// return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
-	return nullptr;
-}
+#pragma endregion
 
-const char Graphics::ReadImageFile(const char* filepath)
-{
-
-	const char* data;
-
-	std::string line;
-	std::string text;
-
-	std::ifstream in(testTexturePath);
-
-	while (std::getline(in, line))
-	{
-		text += line + "\n";
-	}
-
-	data = text.c_str();
-
-	if (data == nullptr)
-	{
-		std::cout << "Error Reading Image" << std::endl;
-	}
-
-	return *data;
-
-}
-
-#pragma region Getter
+#pragma region Getter Functions
 
 #pragma endregion
 
-#pragma region Setter
+#pragma region Setter Functions
 
 void Graphics::SetMainWindow(GLFWwindow* window)
 {

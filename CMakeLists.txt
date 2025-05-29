@@ -87,7 +87,5 @@ ${OPENGL_gl_LIBRARY}
 
 endif()
 
-# Link GLFW and OpenGL
-
 
 

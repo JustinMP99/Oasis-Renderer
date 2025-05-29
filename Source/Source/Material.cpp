@@ -33,15 +33,15 @@ std::string GetFileContents(const char* filename)
 
 Material::Material() {}
 
-Material::Material(const char* vertexPath, const char* fragmentPath)
+Material::Material(unsigned int* vertexShader, unsigned int* fragmentShader)
 {
-	SetShaders(vertexPath, fragmentPath);
+	SetShaders(vertexShader, fragmentShader);
 }
 
-Material::Material(const char* vertexPath, const char* fragmentPath, const char* mainTexturePath)
+Material::Material(unsigned int* vertexShader, unsigned int* fragmentShader, const char* mainTexturePath)
 {
 
-	SetShaders(vertexPath, fragmentPath);
+	SetShaders(vertexShader, fragmentShader);
 
 	SetMainTexture(mainTexturePath);
 
@@ -73,14 +73,36 @@ Material::Material(unsigned int vertexShader, unsigned int fragmentShader)
 
 #pragma endregion
 
+void Material::Use()
+{
+
+	//Bind Texture
+	glBindTexture(GL_TEXTURE_2D, mainTexture);
+	
+	//Use Shader Program
+	glUseProgram(program);
+
+}
+
+#pragma region Getter Functions
+
+bool Material::GetCompletionStatus()
+{
+	return completed;
+}
+
+#pragma endregion
+
+#pragma region Setter Functions
+
 bool Material::SetMaterialName(const char* name)
 {
-	materialName = *name;
+	materialName = std::string(name);
 
 	return true;
 }
 
-bool Material::SetShaders(const char* vertexPath, const char* fragmentPath)
+bool Material::SetShaders(unsigned int* vertexShader, unsigned int* fragmentShader)
 {
 
 	////Retrieve the Vertex/Fragment source from the given filepaths
@@ -149,8 +171,7 @@ bool Material::SetShaders(const char* vertexPath, const char* fragmentPath)
 	//		infoLog << std::endl;
 	//};
 
-	//3. Create Shader Program
-	
+
 
 
 	return true;
@@ -159,27 +180,10 @@ bool Material::SetShaders(const char* vertexPath, const char* fragmentPath)
 bool Material::SetMainTexture(const char* texturePath)
 {
 
-	
+
 	return true;
 
 }
-
-void Material::Use()
-{
-
-	//Bind Texture
-	glBindTexture(GL_TEXTURE_2D, mainTexture);
-	
-	//Use Shader Program
-	glUseProgram(program);
-
-}
-
-bool Material::GetCompletionStatus()
-{
-	return completed;
-}
-
 
 void Material::SetBool(const std::string& name, bool value) const
 {
@@ -195,4 +199,6 @@ void Material::SetFloat(const std::string& name, float value) const
 {
 	glUniform1i(glGetUniformLocation(program, name.c_str()), value);
 }
+
+#pragma endregion
 
