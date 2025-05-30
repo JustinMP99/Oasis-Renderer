@@ -24,9 +24,8 @@ public:
 
 	//Constructor for the Material object
 	Material();
-	Material(unsigned int* vertexShader, unsigned int* fragmentShader);
-	Material(unsigned int* vertexShader, unsigned int* fragmentShader, const char* mainTexturePath);
 	Material(unsigned int vertexShader, unsigned int fragmentShader);
+	Material(unsigned int vertexShader, unsigned int fragmentShader, unsigned int mainTexture);
 
 	//Setup Functions
 
@@ -44,8 +43,8 @@ public:
 #pragma region Setter Functions
 
 	bool SetMaterialName(const char* name);
-	bool SetShaders(unsigned int* vertexShader, unsigned int* fragmentShader);
-	bool SetMainTexture(const char* texturePath);
+	bool SetShaders(unsigned int vertexShader, unsigned int fragmentShader);
+	bool SetMainTexture(unsigned int mainTexture);
 	void SetBool(const std::string& name, bool value) const;
 	void SetInt(const std::string& name, int value) const;
 	void SetFloat(const std::string& name, float value) const;

@@ -33,43 +33,20 @@ std::string GetFileContents(const char* filename)
 
 Material::Material() {}
 
-Material::Material(unsigned int* vertexShader, unsigned int* fragmentShader)
-{
-	SetShaders(vertexShader, fragmentShader);
-}
-
-Material::Material(unsigned int* vertexShader, unsigned int* fragmentShader, const char* mainTexturePath)
-{
-
-	SetShaders(vertexShader, fragmentShader);
-
-	SetMainTexture(mainTexturePath);
-
-}
-
 Material::Material(unsigned int vertexShader, unsigned int fragmentShader)
 {
+	SetShaders(vertexShader, fragmentShader);
+}
 
-	int success;
-	char infoLog[512];
+Material::Material(unsigned int vertexShader, unsigned int fragmentShader, unsigned int mainTexture)
+{
 
-	program = glCreateProgram();
-	glAttachShader(program, vertexShader);
-	glAttachShader(program, fragmentShader);
-	glLinkProgram(program);
+	SetShaders(vertexShader, fragmentShader);
 
-	glGetProgramiv(program, GL_LINK_STATUS, &success);
-	if (!success)
-	{
-		glGetProgramInfoLog(program, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" <<
-			infoLog << std::endl;
-	}
-	//deleteshaders;they’relinkedintoourprogramandnolongernecessary
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	SetMainTexture(mainTexture);
 
 }
+
 
 #pragma endregion
 
@@ -102,82 +79,33 @@ bool Material::SetMaterialName(const char* name)
 	return true;
 }
 
-bool Material::SetShaders(unsigned int* vertexShader, unsigned int* fragmentShader)
+bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader)
 {
 
-	////Retrieve the Vertex/Fragment source from the given filepaths
-	//std::string vertexCode;
-	//std::string fragmentCode;
-	//std::ifstream vShaderFile;
-	//std::ifstream fShaderFile;
+	int success;
+	char infoLog[512];
 
-	//vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-	//fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	program = glCreateProgram();
+	glAttachShader(program, vertexShader);
+	glAttachShader(program, fragmentShader);
+	glLinkProgram(program);
 
-	//try
-	//{
-	//	vShaderFile.open(vertexPath);
-	//	fShaderFile.open(fragmentPath);
-
-	//	std::stringstream vShaderStream;
-	//	std::stringstream fShaderStream;
-
-	//	vShaderStream << vShaderFile.rdbuf();
-	//	fShaderStream << fShaderFile.rdbuf();
-
-	//	vShaderFile.close();
-	//	fShaderFile.close();
-
-	//	vertexCode = vShaderStream.str();
-	//	fragmentCode = fShaderStream.str();
-
-	//}
-	//catch (std::ifstream::failure e)
-	//{
-	//	std::cout << "Error Reading File from File Path\n" << std::endl;
-	//}
-
-	//const char* vShaderCode = vertexCode.c_str();
-	//const char* fShaderCode = fragmentCode.c_str();
-
-	////2. Create Shaders
-	//unsigned int vertex;
-	//unsigned int fragment;
-
-
-	//vertex = glCreateShader(GL_VERTEX_SHADER);
-	//glShaderSource(vertex, 1, &vShaderCode, NULL);
-	//glCompileShader(vertex);
-
-	////Print Compile Errors if Any
-	//glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
-	//if (!success)
-	//{
-	//	glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-	//	std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
-	//		infoLog << std::endl;
-	//};
-
-	//fragment = glCreateShader(GL_FRAGMENT_SHADER);
-	//glShaderSource(fragment, 1, &fShaderCode, NULL);
-	//glCompileShader(fragment);
-
-	////Print Compile Errors if Any
-	//glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
-	//if (!success)
-	//{
-	//	glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-	//	std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
-	//		infoLog << std::endl;
-	//};
-
-
+	glGetProgramiv(program, GL_LINK_STATUS, &success);
+	if (!success)
+	{
+		glGetProgramInfoLog(program, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" <<
+			infoLog << std::endl;
+	}
+	//deleteshaders;they’relinkedintoourprogramandnolongernecessary
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
 
 
 	return true;
 }
 
-bool Material::SetMainTexture(const char* texturePath)
+bool Material::SetMainTexture(unsigned int mainTexture)
 {
 
 

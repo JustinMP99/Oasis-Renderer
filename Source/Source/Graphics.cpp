@@ -294,13 +294,13 @@ Material Graphics::CompileMaterial()
 bool Graphics::InitializeShaders()
 {
 
-	fallbackVertexShader = CompileShaders(fallbackVertexShaderPath);
-	fallbackFragmentShader = CompileShaders(fallbackFragmentShaderPath);
+	fallbackVertexShader = CompileVertexShader(fallbackVertexShaderPath);
+	fallbackFragmentShader = CompileFragmentShader(fallbackFragmentShaderPath);
 
 	return false;
 }
 
-unsigned int* Graphics::CompileShaders(const char* filepath)
+unsigned int* Graphics::CompileVertexShader(const char* filepath)
 {
 
 	std::string shaderCode;
@@ -349,6 +349,53 @@ unsigned int* Graphics::CompileShaders(const char* filepath)
 	return shader;
 }
 
+unsigned int* Graphics::CompileFragmentShader(const char* filepath)
+{
+	std::string shaderCode;
+	std::ifstream shaderFile;
+
+	shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+	try
+	{
+		shaderFile.open(filepath);
+
+		std::stringstream shaderStream;
+
+		shaderStream << shaderFile.rdbuf();
+
+		shaderFile.close();
+
+		shaderCode = shaderStream.str();
+
+	}
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "Error Reading File from File Path\n" << std::endl;
+	}
+
+	const char* vShaderCode = shaderCode.c_str();
+
+	//2. Create Shaders
+	unsigned int* shader = new unsigned int;
+	int success;
+	char infoLog[512];
+
+	*shader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(*shader, 1, &vShaderCode, NULL);
+	glCompileShader(*shader);
+
+	//Print Compile Errors if Any
+	glGetShaderiv(*shader, GL_COMPILE_STATUS, &success);
+	if (!success)
+	{
+		glGetShaderInfoLog(*shader, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
+			infoLog << std::endl;
+	};
+
+	return shader;
+}
 
 #pragma endregion
 
