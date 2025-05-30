@@ -618,7 +618,7 @@ bool Graphics::CreateQuadTemp()
 	Vertex topLeft;
 	topLeft.position = glm::vec3(-0.5f, 0.5f, 0.0f);
 	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(0.1f, 1.0f);
+	topLeft.uv = glm::vec2(0.0f, 1.0f);
 
 	Vertex topRight;
 	topLeft.position = glm::vec3(0.5f, 0.5f, 0.0f);
@@ -628,12 +628,12 @@ bool Graphics::CreateQuadTemp()
 	Vertex bottomLeft;
 	topLeft.position = glm::vec3(-0.5f, -0.5f, 0.0f);
 	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(0.1f, 1.0f);
+	topLeft.uv = glm::vec2(0.0f, 0.0f);
 	
 	Vertex bottomRight;
 	topLeft.position = glm::vec3(0.5f, -0.5f, 0.0f);
 	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(0.1f, 1.0f);
+	topLeft.uv = glm::vec2(1.0f, 0.0f);
 
 
 	//Create Index List
