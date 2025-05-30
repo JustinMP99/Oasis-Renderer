@@ -3,7 +3,7 @@
 #include <glad.h>
 #include "Vertex.h"
 #include "Material.h"
-#include "UV.h"
+#include "Mesh.h"
 
 #include "glm.hpp"
 #include "gtc/matrix_transform.hpp"
@@ -15,10 +15,7 @@ class GameObject
 
 private:
 
-
-
 public:
-
 
 	//Mesh Data Storage
 	GLfloat* vertices;
@@ -31,16 +28,13 @@ public:
 	GLuint* EBO; //Holds ID to Index Buffer
 	GLuint* VAO; //Holds ID to Vertex Array 
 
-
 	//Material Variables
 	Material* material;
-
-	//unsigned int vertexShader;
-	//unsigned int fragmentShader;
-	//unsigned int shaderProgram;
-
+	Mesh* mesh;
+	
 	GameObject();
 	~GameObject();
 
+	void Draw();
 
 };

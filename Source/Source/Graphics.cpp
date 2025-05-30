@@ -36,6 +36,11 @@ const char Graphics::ReadImageFile(const char* filepath)
 
 }
 
+//Private
+
+
+//Public
+
 //Constructors
 #pragma region Constructors
 
@@ -514,7 +519,7 @@ bool Graphics::CreateQuad()
 	GLfloat tempVertArray[] = {
 
 		//Positions								//Texture Coordinates
-		-0.5f,  0.5f, 0.0f,						0.1f, 1.0f,					//Top Left        
+		-0.5f,  0.5f, 0.0f,						0.0f, 1.0f,					//Top Left        
 		0.5f,  0.5f, 0.0f,						1.0f, 1.0f,					//Top Right
 		-0.5f, -0.5f, 0.0f,						0.0f, 0.0f,					//Bottom Left
 		0.5f, -0.5f, 0.0f,						1.0f, 0.0f					//Bottom Right
@@ -603,6 +608,52 @@ bool Graphics::CreateQuad()
 	sceneObjects.push_back(square);
 
 	return true;
+}
+
+bool Graphics::CreateQuadTemp()
+{
+
+	//Create Vertex objects
+	std::vector<Vertex> newVertex;
+	Vertex topLeft;
+	topLeft.position = glm::vec3(-0.5f, 0.5f, 0.0f);
+	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	topLeft.uv = glm::vec2(0.1f, 1.0f);
+
+	Vertex topRight;
+	topLeft.position = glm::vec3(0.5f, 0.5f, 0.0f);
+	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	topLeft.uv = glm::vec2(1.0f, 1.0f);
+	
+	Vertex bottomLeft;
+	topLeft.position = glm::vec3(-0.5f, -0.5f, 0.0f);
+	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	topLeft.uv = glm::vec2(0.1f, 1.0f);
+	
+	Vertex bottomRight;
+	topLeft.position = glm::vec3(0.5f, -0.5f, 0.0f);
+	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	topLeft.uv = glm::vec2(0.1f, 1.0f);
+
+
+	//Create Index List
+	std::vector<unsigned int> newIndex;
+
+	//Create GameObject
+	GameObject* quadGO = new GameObject();
+
+	//Create Mesh
+	quadGO->mesh = new Mesh(newVertex, newIndex);
+
+	//Create Material
+	quadGO->material = new Material(*fallbackVertexShader, *fallbackFragmentShader, *containerTexture);
+
+	//Add to sceneObjects List
+	sceneObjects.push_back(quadGO);
+
+
+	return true;
+
 }
 
 bool Graphics::CreateObject(const char* filepath)

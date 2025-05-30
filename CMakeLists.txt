@@ -24,7 +24,7 @@ Source/Source/Graphics.cpp
 Source/Source/Material.cpp
 Source/Source/Vertex.cpp
 Source/Source/WindowManager.cpp
-Source/Source/UV.cpp
+
 Source/Source/glad.c
 
 #ImGui
@@ -36,10 +36,8 @@ Source/Source/glad.c
 #Additional/Includes/imgui/imgui_widgets.cpp
 
 Additional/Includes/stb_image/stb_image.cpp
-Source/Headers/UV.h
-Source/Source/UV.cpp
 
-)
+ "Source/Headers/Mesh.h" "Source/Source/Mesh.cpp")
 
 # Set Path Variables
 set(GLAD_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Additional/Includes/glad")

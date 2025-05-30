@@ -18,3 +18,15 @@ GameObject::~GameObject()
 	delete EBO;
 
 }
+
+
+void GameObject::Draw()
+{
+
+	//Use Material
+	material->Use();
+
+	//Bind Mesh VAO & call Draw Elements
+	mesh->Use();
+
+}

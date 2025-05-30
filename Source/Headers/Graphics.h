@@ -30,8 +30,6 @@ private:
 
 	std::vector<GameObject*> sceneObjects;
 
-	//Shaders 
-
 #pragma region Data Paths
 
 #if PLATFORM == WINDOWS
@@ -128,6 +126,8 @@ public:
 	/// </summary>
 	/// <returns>Returns True if Successful</returns>
 	bool CreateQuad();
+
+	bool CreateQuadTemp();
 
 	/// <summary>
 	/// Creates an GameObject

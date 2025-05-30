@@ -5,24 +5,16 @@
 #include <glad.h>
 #endif
 
-class Vertex
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
+#include "gtc/type_ptr.hpp"
+
+
+struct Vertex
 {
-
-private:
-
-
-public:
-
 	
-	GLfloat X;
-	GLfloat Y;
-	GLfloat Z;
-
-
-	Vertex();
-
-	Vertex(float x, float y, float z);
-
-	~Vertex();
+	glm::vec3 position;
+	glm::vec3 normal;
+	glm::vec2 uv;
 
 };
