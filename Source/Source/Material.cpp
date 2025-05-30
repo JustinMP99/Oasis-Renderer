@@ -1,10 +1,6 @@
 #include "../Headers/Material.h"
 
-/// <summary>
-/// Reads the file passed in and returns its contents as a string
-/// </summary>
-/// <param name="filename"></param>
-/// <returns></returns>
+
 std::string GetFileContents(const char* filename)
 {
 
@@ -28,9 +24,7 @@ std::string GetFileContents(const char* filename)
 
 }
 
-
-#pragma region Constructors
-
+//Constructors
 Material::Material() {}
 
 Material::Material(unsigned int vertexShader, unsigned int fragmentShader)
@@ -47,8 +41,12 @@ Material::Material(unsigned int vertexShader, unsigned int fragmentShader, unsig
 
 }
 
+//Destructors
+Material::~Material()
+{
 
-#pragma endregion
+}
+
 
 void Material::Use()
 {
@@ -61,17 +59,19 @@ void Material::Use()
 
 }
 
-#pragma region Getter Functions
-
+//Getters
 bool Material::GetCompletionStatus()
 {
 	return completed;
 }
 
-#pragma endregion
+//Setters
 
-#pragma region Setter Functions
-
+/// <summary>
+/// Sets the Materials name
+/// </summary>
+/// <param name="name">Name to be set</param>
+/// <returns></returns>
 bool Material::SetMaterialName(const char* name)
 {
 	materialName = std::string(name);
@@ -79,6 +79,12 @@ bool Material::SetMaterialName(const char* name)
 	return true;
 }
 
+/// <summary>
+/// Links the passed in shaders to this Materials shader program
+/// </summary>
+/// <param name="vertexShader">Vertex shader to link</param>
+/// <param name="fragmentShader">Fragment shader to link</param>
+/// <returns></returns>
 bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader)
 {
 
@@ -105,6 +111,11 @@ bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader
 	return true;
 }
 
+/// <summary>
+/// Sets the main texture of the Material
+/// </summary>
+/// <param name="mainTexture">Texture to set</param>
+/// <returns></returns>
 bool Material::SetMainTexture(unsigned int mainTexture)
 {
 
@@ -127,6 +138,4 @@ void Material::SetFloat(const std::string& name, float value) const
 {
 	glUniform1i(glGetUniformLocation(program, name.c_str()), value);
 }
-
-#pragma endregion
 

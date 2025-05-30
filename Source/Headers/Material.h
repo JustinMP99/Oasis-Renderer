@@ -7,6 +7,12 @@
 
 #include "stb_image.h"
 
+
+/// <summary>
+/// Reads the file passed in and returns its contents as a string
+/// </summary>
+/// <param name="filename"></param>
+/// <returns></returns>
 std::string GetFileContents(const char* filename);
 
 class Material
@@ -23,32 +29,39 @@ public:
 	unsigned int mainTexture;
 
 	//Constructor for the Material object
+	
+	/// <summary>
+	/// Basic Constructor
+	/// </summary>
 	Material();
+
+	/// <summary>
+	/// Constructor that takes the passed in shaders and links them to the program
+	/// </summary>
 	Material(unsigned int vertexShader, unsigned int fragmentShader);
+
+	/// <summary>
+	/// Constructor that takes in vertex and fragment shaders along with a OpenGL texture and assigns them to variables in the Material
+	/// </summary>
 	Material(unsigned int vertexShader, unsigned int fragmentShader, unsigned int mainTexture);
 
-	//Setup Functions
+	//Destructor
+	~Material();
 
 	/// <summary>
 	/// Sets the program, textures, etc. to be used during rendering
 	/// </summary>
 	void Use();
 
-#pragma region Getter Functions
-
+	//Getters
 	bool GetCompletionStatus();
 
-#pragma endregion
-
-#pragma region Setter Functions
-
+	//Setters
 	bool SetMaterialName(const char* name);
 	bool SetShaders(unsigned int vertexShader, unsigned int fragmentShader);
 	bool SetMainTexture(unsigned int mainTexture);
 	void SetBool(const std::string& name, bool value) const;
 	void SetInt(const std::string& name, int value) const;
 	void SetFloat(const std::string& name, float value) const;
-
-#pragma endregion
 
 };

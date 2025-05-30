@@ -79,33 +79,20 @@ private:
 
 public:
 
-
-#pragma region Constructors
-
+	//Constructors
 	Graphics();
 
-#pragma endregion
-
-#pragma region Destructors
-
+	//Destructors
 	~Graphics();
 
-#pragma endregion
-
-
 	//Core Functions
-#pragma region Core Functions
-
 	bool Initialize();
 
 	bool Render();
 
 	bool Shutdown();
 
-#pragma endregion
-
-#pragma region UI Functions (ImGui)
-
+	//UI Functions (ImGui)
 	bool InitializeImGui();
 
 	bool RenderGUI();
@@ -116,39 +103,24 @@ public:
 
 	bool InitializeDockspace();
 
-#pragma endregion
-
-	//Helper Functions
-#pragma region Material Functions
-
+	//Material Functions
 	bool InitializeMaterial();
 
-	//Additional Functions
 	Material CompileMaterial();
 
-#pragma endregion
-
-#pragma region Shader Functions
-
+	//Shader Functions
 	bool InitializeShaders();
 
 	unsigned int* CompileVertexShader(const char* filepath);
 
 	unsigned int* CompileFragmentShader(const char* filepath);
 
-#pragma endregion
-
-#pragma region Texture Functions
-
+	//Texture Functions
 	bool InitializeTextures();
 
 	unsigned int* CreateTexture(const char* filepath);
 
-#pragma endregion
-
-#pragma region Object Creation Functions
-
-
+	//Object Creation Functions
 	bool CreateTriangleGameobject();
 
 	/// <summary>
@@ -164,21 +136,11 @@ public:
 	/// <returns></returns>
 	bool CreateObject(const char* filepath);
 
-#pragma endregion
-
-#pragma region Getter Functions
-
+	//Getters
 	std::string getexepath();
 
-#pragma endregion
-
-#pragma region Setter Functions
-
-	//Setter
+	//Setters
 	void SetMainWindow(GLFWwindow* window);
-
-
-#pragma endregion
 
 	const char ReadImageFile(const char* filepath);
 

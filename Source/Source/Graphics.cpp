@@ -36,6 +36,7 @@ const char Graphics::ReadImageFile(const char* filepath)
 
 }
 
+//Constructors
 #pragma region Constructors
 
 Graphics::Graphics()
@@ -45,6 +46,7 @@ Graphics::Graphics()
 
 #pragma endregion
 
+//Destructors
 #pragma region Destructors
 
 Graphics::~Graphics()
@@ -54,8 +56,7 @@ Graphics::~Graphics()
 
 #pragma endregion
 
-#pragma region Core Functions
-
+//Core Functions
 bool Graphics::Initialize()
 {
 
@@ -135,11 +136,7 @@ bool Graphics::Shutdown()
 	return true;
 }
 
-
-#pragma endregion
-
-#pragma region UI Functions (ImGui)
-
+//UI Functions (ImGui)
 bool Graphics::InitializeImGui()
 {
 
@@ -260,10 +257,7 @@ bool Graphics::RenderAdditionalWindow()
 	return true;
 }
 
-#pragma endregion
-
-#pragma region Material Functions
-
+//Material Functions
 bool Graphics::InitializeMaterial()
 {
 
@@ -287,10 +281,7 @@ Material Graphics::CompileMaterial()
 	return *fallbackMat;
 }
 
-#pragma endregion
-
-#pragma region Shader Functions
-
+//Shader Functions
 bool Graphics::InitializeShaders()
 {
 
@@ -397,10 +388,7 @@ unsigned int* Graphics::CompileFragmentShader(const char* filepath)
 	return shader;
 }
 
-#pragma endregion
-
-#pragma region Texture Functions
-
+//Texture Functions
 bool Graphics::InitializeTextures()
 {
 
@@ -449,10 +437,7 @@ unsigned int* Graphics::CreateTexture(const char* filepath)
 	return textureID;
 }
 
-#pragma endregion
-
-#pragma region Object Creation Functions
-
+//Object Creation
 bool Graphics::CreateTriangleGameobject()
 {
 
@@ -620,12 +605,18 @@ bool Graphics::CreateQuad()
 	return true;
 }
 
-#pragma endregion
+bool Graphics::CreateObject(const char* filepath)
+{
 
+	return true;
+}
+
+//Getters
 #pragma region Getter Functions
 
 #pragma endregion
 
+//Setters
 #pragma region Setter Functions
 
 void Graphics::SetMainWindow(GLFWwindow* window)
