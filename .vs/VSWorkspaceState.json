@@ -13,7 +13,11 @@
     "\\Additional",
     "\\Source",
     "\\Source\\Headers",
+    "\\Source\\Shaders",
+    "\\Source\\Shaders\\Fragment Shaders",
+    "\\Source\\Shaders\\Vertex Shaders",
     "\\Source\\Source"
   ],
+  "SelectedNode": "\\Source\\Shaders\\Vertex Shaders\\FallbackVertex.vert",
   "PreviewInSolutionExplorer": false
 }

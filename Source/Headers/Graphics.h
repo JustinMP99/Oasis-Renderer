@@ -127,8 +127,6 @@ public:
 	/// <returns>Returns True if Successful</returns>
 	bool CreateQuad();
 
-	bool CreateQuadTemp();
-
 	/// <summary>
 	/// Creates an GameObject
 	/// </summary>

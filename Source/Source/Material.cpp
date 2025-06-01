@@ -35,7 +35,7 @@ Material::Material(unsigned int vertexShader, unsigned int fragmentShader)
 Material::Material(unsigned int vertexShader, unsigned int fragmentShader, unsigned int mainTexture)
 {
 
-	SetShaders(vertexShader, fragmentShader);
+	0(vertexShader, fragmentShader);
 
 	SetMainTexture(mainTexture);
 
@@ -46,7 +46,6 @@ Material::~Material()
 {
 
 }
-
 
 void Material::Use()
 {
@@ -107,7 +106,6 @@ bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
-
 	return true;
 }
 
@@ -116,10 +114,10 @@ bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader
 /// </summary>
 /// <param name="mainTexture">Texture to set</param>
 /// <returns></returns>
-bool Material::SetMainTexture(unsigned int mainTexture)
+bool Material::SetMainTexture(unsigned int newMainTexture)
 {
 
-
+	mainTexture = newMainTexture;
 	return true;
 
 }

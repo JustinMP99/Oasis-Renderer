@@ -59,7 +59,7 @@ public:
 	//Setters
 	bool SetMaterialName(const char* name);
 	bool SetShaders(unsigned int vertexShader, unsigned int fragmentShader);
-	bool SetMainTexture(unsigned int mainTexture);
+	bool SetMainTexture(unsigned int newMainTexture);
 	void SetBool(const std::string& name, bool value) const;
 	void SetInt(const std::string& name, int value) const;
 	void SetFloat(const std::string& name, float value) const;

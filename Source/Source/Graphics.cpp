@@ -84,7 +84,9 @@ bool Graphics::Initialize()
 	InitializeTextures();
 
 	//Create Quad
+	//CreateQuad();
 	CreateQuad();
+
 
 	//Initialize ImGui
 	InitializeImGui();
@@ -104,13 +106,7 @@ bool Graphics::Render()
 	for (int i = 0; i < sceneObjects.size(); i++)
 	{
 
-		sceneObjects[i]->material->Use();
-
-		glBindVertexArray(*sceneObjects[i]->VAO);
-
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-		glBindVertexArray(0);
+		sceneObjects[i]->Draw();
 
 	}
 
@@ -501,116 +497,116 @@ bool Graphics::CreateTriangleGameobject()
 	return true;
 }
 
+//bool Graphics::CreateQuad()
+//{
+//	//std::cout << getexepath() << std::endl;
+//	//std::cout << "Creating Square..." << std::endl;
+//
+//	//Create Vertex Array
+//	//Vertex tempVertArray[4] = {
+//
+//	//	 Vertex(-0.5f,  0.5f, 0.0f),   //Top Left
+//	//	 Vertex(0.5f,  0.5f, 0.0f),    //Top Right
+//	//	 Vertex(-0.5f, -0.5f, 0.0f),   //Bottom Left
+//	//	 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
+//
+//	//};
+//
+//	GLfloat tempVertArray[] = {
+//
+//		//Positions								//Texture Coordinates
+//		-0.5f,  0.5f, 0.0f,						0.0f, 1.0f,					//Top Left        
+//		0.5f,  0.5f, 0.0f,						1.0f, 1.0f,					//Top Right
+//		-0.5f, -0.5f, 0.0f,						0.0f, 0.0f,					//Bottom Left
+//		0.5f, -0.5f, 0.0f,						1.0f, 0.0f					//Bottom Right
+//
+//	};
+//
+//	//Create Index Array
+//	unsigned int tempIndexArray[6] =
+//	{
+//		0, 1, 2,
+//		1, 3, 2
+//	};
+//
+//	//Create UV Array
+//	//UV tempUVArray[4] = {
+//
+//	//	UV(0.0f, 1.0f), //Top Left
+//	//	UV(1.0f, 1.0f), //Top Right
+//	//	UV(0.0f, 0.0f), //Bottom Left
+//	//	UV(1.0f, 0.0f)  //Bottom Right
+//
+//	//};
+//
+//	GLfloat tempUVArray[8] = {
+//
+//	   0.0f, 1.0f, //Top Left
+//	   1.0f, 1.0f, //Top Right
+//	   0.0f, 0.0f, //Bottom Left
+//	   1.0f, 0.0f  //Bottom Right
+//
+//	};
+//
+//	//Create New GameObject
+//	GameObject* square = new GameObject();
+//
+//	//Fill GameObject Vertex & Index Array
+//	square->vertices = new GLfloat[20];
+//	memcpy(square->vertices, tempVertArray, 4 * sizeof(GLfloat));
+//
+//	square->indices = new unsigned int[6];
+//	memcpy(square->indices, tempIndexArray, 6 * sizeof(unsigned int));
+//
+//	square->uv = new GLfloat[8];
+//	memcpy(square->uv, tempUVArray, 8 * sizeof(GLfloat));
+//
+//	glGenVertexArrays(1, square->VAO);
+//
+//	glBindVertexArray(*square->VAO);
+//
+//	//Create GameObject VBO & EBO
+//	glGenBuffers(1, square->VBO);
+//
+//	glBindBuffer(GL_ARRAY_BUFFER, *square->VBO);
+//
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(tempVertArray), tempVertArray, GL_STATIC_DRAW);
+//
+//	glGenBuffers(1, square->EBO);
+//
+//	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *square->EBO);
+//
+//	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(tempIndexArray), tempIndexArray, GL_STATIC_DRAW);
+//
+//	//Set Position Attribute
+//	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
+//
+//	glEnableVertexAttribArray(0);
+//
+//	//Set UV Attribute
+//	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+//
+//	glEnableVertexAttribArray(1);
+//
+//	//Set Material
+//	fallbackMat->mainTexture = *containerTexture;
+//	square->material = fallbackMat;
+//
+//	int colorLocation = glGetUniformLocation(square->material->program, "col");
+//	square->material->Use();
+//	glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
+//
+//
+//	//TEST
+//	//glActiveTexture(GL_TEXTURE0); // activate the texture unit first before binding texture
+//	//glBindTexture(GL_TEXTURE_2D, texture);
+//
+//	sceneObjects.push_back(square);
+//
+//	return true;
+//}
+
 bool Graphics::CreateQuad()
-{
-	//std::cout << getexepath() << std::endl;
-	//std::cout << "Creating Square..." << std::endl;
-
-	//Create Vertex Array
-	//Vertex tempVertArray[4] = {
-
-	//	 Vertex(-0.5f,  0.5f, 0.0f),   //Top Left
-	//	 Vertex(0.5f,  0.5f, 0.0f),    //Top Right
-	//	 Vertex(-0.5f, -0.5f, 0.0f),   //Bottom Left
-	//	 Vertex(0.5f, -0.5f, 0.0f),    //Bottom Right
-
-	//};
-
-	GLfloat tempVertArray[] = {
-
-		//Positions								//Texture Coordinates
-		-0.5f,  0.5f, 0.0f,						0.0f, 1.0f,					//Top Left        
-		0.5f,  0.5f, 0.0f,						1.0f, 1.0f,					//Top Right
-		-0.5f, -0.5f, 0.0f,						0.0f, 0.0f,					//Bottom Left
-		0.5f, -0.5f, 0.0f,						1.0f, 0.0f					//Bottom Right
-
-	};
-
-	//Create Index Array
-	unsigned int tempIndexArray[6] =
-	{
-		0, 1, 2,
-		1, 3, 2
-	};
-
-	//Create UV Array
-	//UV tempUVArray[4] = {
-
-	//	UV(0.0f, 1.0f), //Top Left
-	//	UV(1.0f, 1.0f), //Top Right
-	//	UV(0.0f, 0.0f), //Bottom Left
-	//	UV(1.0f, 0.0f)  //Bottom Right
-
-	//};
-
-	GLfloat tempUVArray[8] = {
-
-	   0.0f, 1.0f, //Top Left
-	   1.0f, 1.0f, //Top Right
-	   0.0f, 0.0f, //Bottom Left
-	   1.0f, 0.0f  //Bottom Right
-
-	};
-
-	//Create New GameObject
-	GameObject* square = new GameObject();
-
-	//Fill GameObject Vertex & Index Array
-	square->vertices = new GLfloat[20];
-	memcpy(square->vertices, tempVertArray, 4 * sizeof(GLfloat));
-
-	square->indices = new unsigned int[6];
-	memcpy(square->indices, tempIndexArray, 6 * sizeof(unsigned int));
-
-	square->uv = new GLfloat[8];
-	memcpy(square->uv, tempUVArray, 8 * sizeof(GLfloat));
-
-	glGenVertexArrays(1, square->VAO);
-
-	glBindVertexArray(*square->VAO);
-
-	//Create GameObject VBO & EBO
-	glGenBuffers(1, square->VBO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, *square->VBO);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(tempVertArray), tempVertArray, GL_STATIC_DRAW);
-
-	glGenBuffers(1, square->EBO);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *square->EBO);
-
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(tempIndexArray), tempIndexArray, GL_STATIC_DRAW);
-
-	//Set Position Attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
-
-	glEnableVertexAttribArray(0);
-
-	//Set UV Attribute
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-
-	glEnableVertexAttribArray(1);
-
-	//Set Material
-	fallbackMat->mainTexture = *containerTexture;
-	square->material = fallbackMat;
-
-	int colorLocation = glGetUniformLocation(square->material->program, "col");
-	square->material->Use();
-	glUniform4f(colorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
-
-
-	//TEST
-	//glActiveTexture(GL_TEXTURE0); // activate the texture unit first before binding texture
-	//glBindTexture(GL_TEXTURE_2D, texture);
-
-	sceneObjects.push_back(square);
-
-	return true;
-}
-
-bool Graphics::CreateQuadTemp()
 {
 
 	//Create Vertex objects
@@ -621,23 +617,33 @@ bool Graphics::CreateQuadTemp()
 	topLeft.uv = glm::vec2(0.0f, 1.0f);
 
 	Vertex topRight;
-	topLeft.position = glm::vec3(0.5f, 0.5f, 0.0f);
-	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(1.0f, 1.0f);
+	topRight.position = glm::vec3(0.5f, 0.5f, 0.0f);
+	topRight.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	topRight.uv = glm::vec2(1.0f, 1.0f);
 	
 	Vertex bottomLeft;
-	topLeft.position = glm::vec3(-0.5f, -0.5f, 0.0f);
-	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(0.0f, 0.0f);
+	bottomLeft.position = glm::vec3(-0.5f, -0.5f, 0.0f);
+	bottomLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	bottomLeft.uv = glm::vec2(0.0f, 0.0f);
 	
 	Vertex bottomRight;
-	topLeft.position = glm::vec3(0.5f, -0.5f, 0.0f);
-	topLeft.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-	topLeft.uv = glm::vec2(1.0f, 0.0f);
+	bottomRight.position = glm::vec3(0.5f, -0.5f, 0.0f);
+	bottomRight.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+	bottomRight.uv = glm::vec2(1.0f, 0.0f);
 
+	newVertex.push_back(topLeft);
+	newVertex.push_back(topRight);
+	newVertex.push_back(bottomLeft);
+	newVertex.push_back(bottomRight);
 
 	//Create Index List
 	std::vector<unsigned int> newIndex;
+	newIndex.push_back(0);
+	newIndex.push_back(1);
+	newIndex.push_back(2);
+	newIndex.push_back(1);
+	newIndex.push_back(3);
+	newIndex.push_back(2);
 
 	//Create GameObject
 	GameObject* quadGO = new GameObject();
@@ -646,11 +652,14 @@ bool Graphics::CreateQuadTemp()
 	quadGO->mesh = new Mesh(newVertex, newIndex);
 
 	//Create Material
-	quadGO->material = new Material(*fallbackVertexShader, *fallbackFragmentShader, *containerTexture);
+	quadGO->material = new Material(*fallbackVertexShader, *fallbackFragmentShader);
+	quadGO->material->SetMainTexture(*containerTexture);
+	
+	//fallbackMat->mainTexture = *containerTexture;
+	//quadGO->material = fallbackMat;
 
 	//Add to sceneObjects List
 	sceneObjects.push_back(quadGO);
-
 
 	return true;
 

@@ -20,7 +20,6 @@ public:
 
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
-	unsigned int mainTexture;
 
 	Mesh();
 	Mesh(std::vector<Vertex> newVertices, std::vector<unsigned int> indices);

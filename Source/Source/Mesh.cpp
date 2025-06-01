@@ -35,7 +35,7 @@ void Mesh::SetupMesh()
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, uv));
 
 	//Bind the Vertex Array
-	//glBindVertexArray(0);
+	glBindVertexArray(0);
 
 }
 
