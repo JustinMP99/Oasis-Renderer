@@ -24,6 +24,8 @@ public:
 	Mesh();
 	Mesh(std::vector<Vertex> newVertices, std::vector<unsigned int> indices);
 
+	~Mesh();
+
 	/// <summary>
 	/// Binds VAO & calls DrawElements
 	/// </summary>

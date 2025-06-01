@@ -51,6 +51,13 @@ Mesh::Mesh(std::vector<Vertex> newVertices, std::vector<unsigned int> newIndices
 
 }
 
+Mesh::~Mesh()
+{
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
+}
+
 void Mesh::Use()
 {
 	glBindVertexArray(VAO);

@@ -17,16 +17,8 @@ private:
 
 public:
 
-	//Mesh Data Storage
-	GLfloat* vertices;
-	unsigned int* indices;
-	//UV* uv;
-	GLfloat* uv;
-
-	//Buffer Variables
-	GLuint* VBO; //Holds ID to Vertex Buffer
-	GLuint* EBO; //Holds ID to Index Buffer
-	GLuint* VAO; //Holds ID to Vertex Array 
+	//Position
+	glm::mat4 model = glm::mat4(1.0f);
 
 	//Material Variables
 	Material* material;
