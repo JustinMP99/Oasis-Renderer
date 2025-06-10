@@ -35,7 +35,7 @@ Material::Material(unsigned int vertexShader, unsigned int fragmentShader)
 Material::Material(unsigned int vertexShader, unsigned int fragmentShader, unsigned int mainTexture)
 {
 
-	0(vertexShader, fragmentShader);
+	//SetShaders(vertexShader, fragmentShader);
 
 	SetMainTexture(mainTexture);
 
@@ -102,7 +102,7 @@ bool Material::SetShaders(unsigned int vertexShader, unsigned int fragmentShader
 		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" <<
 			infoLog << std::endl;
 	}
-	//deleteshaders;they’relinkedintoourprogramandnolongernecessary
+	//deleteshaders;theyï¿½relinkedintoourprogramandnolongernecessary
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
