@@ -38,7 +38,6 @@ const char Graphics::ReadImageFile(const char* filepath)
 
 //Private
 
-
 //Public
 
 //Constructors
@@ -88,13 +87,6 @@ bool Graphics::Initialize()
 
 	//Initialize ImGui
 	InitializeImGui();
-
-	glm::mat4 trans = glm::mat4(1.0f);
-	trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
-	trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-
-	unsigned int transformLoc = glGetUniformLocation(fallbackMat->program, "transform");
-	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
 	return true;
 
@@ -660,6 +652,13 @@ bool Graphics::CreateQuad()
 	//Create Material
 	quadGO->material = new Material(*fallbackVertexShader, *fallbackFragmentShader);
 	quadGO->material->SetMainTexture(*containerTexture);
+
+	glm::mat4 trans = glm::mat4(1.0f);
+	trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+	trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+
+	unsigned int transformLoc = glGetUniformLocation(quadGO->material->program, "transform");
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 	
 	//fallbackMat->mainTexture = *containerTexture;
 	//quadGO->material = fallbackMat;
