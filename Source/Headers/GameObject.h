@@ -26,7 +26,6 @@ public:
 	
 	GameObject();
 	~GameObject();
-
 	void Draw();
 
 };

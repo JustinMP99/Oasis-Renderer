@@ -3,13 +3,15 @@
 #include <glfw3.h>
 
 
-
+///
+/// Handles the creation and managment of the window
+///
 class WindowManager
 {
 private:
 
-	char windowTitle[240];
-	GLFWwindow* mainWindow = NULL;
+	char windowTitle[240]; /* the title of the window */
+	GLFWwindow* mainWindow = NULL; /* pointer to the GLFW window*/
 	int windowHeight;
 	int windowWidth;
 
@@ -17,8 +19,10 @@ private:
 
 public:
 
+
 	bool Initialize();
 
+	/// Frees all memory taken up by the window
 	bool Shutdown();
 
 	//Getter
