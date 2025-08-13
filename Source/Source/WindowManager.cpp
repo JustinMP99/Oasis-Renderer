@@ -23,36 +23,33 @@ bool WindowManager::Initialize()
 	//Set the OpenGL profile to Core (Not Compatibility)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	strcpy_s(windowTitle, "Oasis Renderer");
 
-	// windowTitle = "Oasis Renderer";
+	//Check Graphics API
+	if (GRAPHICS_API == OPENGL)
+	{
+		const char temp[] = " - OpenGL";
+		strcat_s(windowTitle, temp);
+	}
+	else if (GRAPHICS_API == DIRECTX11)
+	{
+		const char temp[] = " - DirectX 11";
+		strcat_s(windowTitle, temp);
+	}
 
-	// strcpy_s(windowTitle, "Oasis Renderer");
+	//Check Window Method
+	if (WINDOW_METHOD == GLFW)
+	{
+		const char temp[] = " - GLFW ";
+		strcat_s(windowTitle, temp);
+	}
+	else if (WINDOW_METHOD == NATIVE)
+	{
+		const char temp[] = " - Native ";
+		strcat_s(windowTitle, temp);
+	}
 
-	// //Check Graphics API
-	// if (GRAPHICS_API == OPENGL)
-	// {
-	// 	const char temp[] = " - OpenGL";
-	// 	strcat_s(windowTitle, temp);
-	// }
-	// else if (GRAPHICS_API == DIRECTX11)
-	// {
-	// 	const char temp[] = " - DirectX 11";
-	// 	strcat_s(windowTitle, temp);
-	// }
-
-	// //Check Window Method
-	// if (WINDOW_METHOD == GLFW)
-	// {
-	// 	const char temp[] = " - GLFW ";
-	// 	strcat_s(windowTitle, temp);
-	// }
-	// else if (WINDOW_METHOD == NATIVE)
-	// {
-	// 	const char temp[] = " - Native ";
-	// 	strcat_s(windowTitle, temp);
-	// }
-
-	mainWindow = glfwCreateWindow(windowWidth, windowHeight, "windowTitle", NULL, NULL);
+	mainWindow = glfwCreateWindow(windowWidth, windowHeight, windowTitle, NULL, NULL);
 
 	if (mainWindow == NULL)
 	{

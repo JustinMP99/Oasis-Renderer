@@ -103,6 +103,13 @@ bool Graphics::Render()
 
 	for (int i = 0; i < sceneObjects.size(); i++)
 	{
+		glm::mat4 trans = glm::mat4(1.0f);
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		//trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+		//trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+
+		unsigned int transformLoc = glGetUniformLocation(sceneObjects[i]->material->program, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
 		sceneObjects[i]->Draw();
 
@@ -654,12 +661,13 @@ bool Graphics::CreateQuad()
 	quadGO->material->SetMainTexture(*containerTexture);
 
 	glm::mat4 trans = glm::mat4(1.0f);
-	trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
-	trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+	trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+	//trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+	//trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
 
 	unsigned int transformLoc = glGetUniformLocation(quadGO->material->program, "transform");
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
-	
+
 	//fallbackMat->mainTexture = *containerTexture;
 	//quadGO->material = fallbackMat;
 
