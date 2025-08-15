@@ -1,7 +1,13 @@
+# set cmake minimum version
 cmake_minimum_required(VERSION 3.10.0)
+
+#set project name and version along with languages
 project(OpenGLRenderer VERSION 0.0.1 LANGUAGES C CXX)
 
+#set cmake c++ standard version
 set (CMAKE_CXX_STANDARD 17)
+
+#set cmake standard required
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #Find Packages

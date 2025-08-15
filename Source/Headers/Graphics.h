@@ -54,12 +54,11 @@ private:
 #elif PLATFORM == MACOS
 
 	//Shader 
-	const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert";
-	const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
+	const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert";
+	const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
 
 	//Texture
-	const char* testTexturePath = "/Users/justinphilie/Documents/Graphics Projects/Oasis-Renderer/Additional/Images/container.jpg";
-
+	const char* testTexturePath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
 
 #endif
 
