@@ -13,7 +13,7 @@
 #define MACOS 2
 
 #define GRAPHICS_API OPENGL
-#define PLATFORM MACOS
+#define PLATFORM WINDOWS
 
 #include "string"
 #include <vector>

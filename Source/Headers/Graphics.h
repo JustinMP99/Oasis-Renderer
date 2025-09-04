@@ -44,23 +44,17 @@ private:
 	const char* fallbackVertexShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert"; //Laptop Path
 	const char* fallbackFragmentShaderPath = "G:/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag"; //Laptop Path
 
-	//Textures
-	//Desktop
-	//const char* testTexturePath = "D:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
-
-	//Laptop
-	const char* testTexturePath = "G:/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
-
 #elif PLATFORM == MACOS
 
 	//Shader 
 	const char* fallbackVertexShaderPath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Source/Shaders/Vertex Shaders/FallbackVertex.vert";
 	const char* fallbackFragmentShaderPath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Source/Shaders/Fragment Shaders/FallbackFragment.frag";
 
-	//Texture
-	const char* testTexturePath = "/Users/justinphilie/Documents/Projects/Graphics/Oasis-Renderer/Additional/Images/container.jpg";
-
 #endif
+
+	//Texture Paths
+	std::string containerTexturePath = std::string(PROJECT_ROOT) + "/Additional/Images/container.jpg";
+
 
 #pragma endregion
 

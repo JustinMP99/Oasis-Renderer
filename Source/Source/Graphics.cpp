@@ -18,7 +18,7 @@ const char Graphics::ReadImageFile(const char* filepath)
 	std::string line;
 	std::string text;
 
-	std::ifstream in(testTexturePath); 
+	std::ifstream in(containerTexturePath);
 
 	while (std::getline(in, line))
 	{
@@ -398,7 +398,9 @@ unsigned int* Graphics::CompileFragmentShader(const char* filepath)
 bool Graphics::InitializeTextures()
 {
 
-	containerTexture = CreateTexture(testTexturePath);
+	const char* texturePath = containerTexturePath.c_str();
+
+	containerTexture = CreateTexture(texturePath);
 
 	return true;
 }

@@ -4,6 +4,8 @@
 int main()
 {
 
+	std::cout << PROJECT_ROOT << std::endl;
+
 	SystemManager* system = new SystemManager();
 
 	system->Initialize();
